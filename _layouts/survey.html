@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/css/survey.css' | relative_url }}?v={{ site.data.survey.asset_version | escape }}">
+</head>
+<body>
+  <main class="survey-page">
+    {{ content }}
+
+    {% assign works = site.data.works[page.works_data] | sort: "no" %}
+    <form
+      id="survey-form"
+      class="survey-form"
+      data-exhibition-key="{{ page.exhibition_key | escape }}"
+      data-supabase-url="{{ site.data.survey.supabase_url | escape }}"
+      data-supabase-key="{{ site.data.survey.supabase_publishable_key | escape }}"
+      data-readonly-url="{{ page.readonly_url | relative_url }}"
+      data-entry-url="{{ page.entry_url | default: page.readonly_url | relative_url }}"
+      data-state-loading="true"
+      novalidate
+    >
+      <div class="survey-status" id="survey-status" role="status" aria-live="polite"></div>
+
+      <section id="survey-editor" aria-labelledby="works-heading">
+        <div class="survey-heading-row">
+          <h2 id="works-heading">お気に入りの作品</h2>
+          <p><strong id="selection-count">0</strong> / 3作品を選択中</p>
+        </div>
+        <p class="survey-help">1作品以上、3作品以下を選択してください。作品への感想は任意です。</p>
+
+        <div class="work-gallery survey-gallery">
+          {% for w in works %}
+          {% assign num = w.no | plus: 0 %}
+          <article class="work-card survey-work-card" data-work-id="{{ w.no | escape }}">
+            <div class="photo-wrapper" data-full="{{ w.images.full | relative_url }}">
+              <div class="photo" style="background-image: url('{{ w.images.thumb | relative_url }}');"></div>
+              <div class="photo-overlay"></div>
+            </div>
+            <div class="work-info">
+              <p class="work-number">No.{% if num < 10 %}0{% endif %}{{ num }}</p>
+              <p class="work-title">{{ w.title }}</p>
+              <p class="work-author">{{ w.author }}</p>
+              <button class="survey-select-button" type="button" aria-pressed="false">この作品を選ぶ</button>
+              <div class="work-comment-panel" hidden>
+                <label for="comment-{{ forloop.index }}">この作品への感想（任意）</label>
+                <textarea id="comment-{{ forloop.index }}" class="work-comment" maxlength="1000" rows="4"></textarea>
+                <span class="character-count" aria-hidden="true">0 / 1000</span>
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+
+        <section class="overall-comment-section" aria-labelledby="overall-heading">
+          <h2 id="overall-heading">写真展全体への感想</h2>
+          <label for="overall-comment">ご感想をお聞かせください（任意）</label>
+          <textarea id="overall-comment" maxlength="2000" rows="7"></textarea>
+          <span class="character-count" aria-hidden="true">0 / 2000</span>
+        </section>
+
+        <div class="survey-actions">
+          <button id="review-button" class="survey-primary-button" type="button" disabled>回答内容を確認</button>
+        </div>
+      </section>
+
+      <section id="survey-review" class="survey-review" aria-labelledby="review-heading" hidden>
+        <h2 id="review-heading">回答内容の確認</h2>
+        <p>以下の内容で送信します。送信後は変更できません。</p>
+        <div id="review-content"></div>
+        <div class="survey-actions survey-actions-split">
+          <button id="edit-button" class="survey-secondary-button" type="button">編集する</button>
+          <button id="submit-button" class="survey-primary-button" type="submit">送信する</button>
+        </div>
+      </section>
+
+      <section id="survey-complete" class="survey-complete" aria-labelledby="complete-heading" hidden>
+        <h2 id="complete-heading">ご協力ありがとうございました</h2>
+        <p>アンケートへの回答を受け付けました。</p>
+        <a class="survey-primary-button survey-link-button" href="{{ page.readonly_url | relative_url }}">作品一覧を見る</a>
+      </section>
+
+      <section id="survey-unavailable" class="survey-complete" aria-labelledby="unavailable-heading" hidden>
+        <h2 id="unavailable-heading">現在ご利用いただけません</h2>
+        <p id="survey-unavailable-message">公開状態を確認できませんでした。</p>
+        <a id="survey-entry-link" class="survey-primary-button survey-link-button" href="{{ page.entry_url | default: page.readonly_url | relative_url }}">写真展ページへ戻る</a>
+      </section>
+    </form>
+  </main>
+  <script type="module" src="{{ '/js/survey.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/css/entry.css' | relative_url }}?v={{ site.data.survey.asset_version | escape }}">
+</head>
+<body>
+  <main
+    id="exhibition-entry"
+    class="exhibition-entry"
+    data-exhibition-key="{{ page.exhibition_key | escape }}"
+    data-supabase-url="{{ site.data.survey.supabase_url | escape }}"
+    data-supabase-key="{{ site.data.survey.supabase_publishable_key | escape }}"
+  >
+    <header class="entry-intro">
+      {{ content }}
+    </header>
+
+    <div id="entry-status" class="entry-status" role="status" aria-live="polite">
+      公開状態を確認しています…
+    </div>
+
+    <section id="entry-upcoming" class="entry-panel" hidden>
+      <h2>公開前です</h2>
+      <p>作品一覧とアンケートは、写真展の開始後にご利用いただけます。</p>
+      <p id="entry-opens-at"></p>
+    </section>
+
+    <section id="entry-open" class="entry-panel" hidden>
+      <h2>ご来場ありがとうございます</h2>
+      <p>作品をご覧いただき、お気に入りの作品を1〜3作品選んでください。</p>
+      <div class="entry-actions">
+        {% assign has_entry_links = false %}
+        {% if page.survey_url and page.survey_url != "" %}
+        {% assign has_entry_links = true %}
+        <a class="entry-primary-button" href="{{ page.survey_url | relative_url }}">アンケート付き作品一覧</a>
+        {% endif %}
+        {% if page.works_url and page.works_url != "" %}
+        {% assign has_entry_links = true %}
+        <a class="entry-secondary-button" href="{{ page.works_url | relative_url }}">作品一覧のみ</a>
+        {% endif %}
+      </div>
+      {% unless has_entry_links %}
+      <p>現在、公開ページを準備しています。</p>
+      {% endunless %}
+    </section>
+
+    <section id="entry-closed" class="entry-panel" hidden>
+      <h2>写真展は終了しました</h2>
+      <p>ご来場ならびにアンケートへのご協力、ありがとうございました。</p>
+      <p>このQRコードからの作品閲覧とアンケート受付は終了しています。</p>
+    </section>
+
+    <section id="entry-unavailable" class="entry-panel" hidden>
+      <h2>現在ご利用いただけません</h2>
+      <p>公開状態を確認できませんでした。時間をおいて、もう一度お試しください。</p>
+    </section>
+
+    <noscript>
+      <p class="entry-noscript">このページの表示にはJavaScriptが必要です。</p>
+    </noscript>
+  </main>
+  <script type="module" src="{{ '/js/exhibition-entry.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
+</body>
+</html>

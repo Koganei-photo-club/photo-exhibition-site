@@ -1,0 +1,49 @@
+:root {
+  --survey-accent: #1769aa;
+  --survey-accent-dark: #0e4f83;
+  --survey-border: #d7dce1;
+  --survey-selected: #eaf4fc;
+  --survey-danger: #b42318;
+}
+.survey-page { max-width: 1440px; margin: 0 auto; padding-top: 2rem; }
+.survey-intro { max-width: 760px; margin: 0 auto 2rem; text-align: center; }
+.survey-form { margin-top: 1.5rem; }
+.survey-form[data-state-loading="true"] #survey-editor { display: none; }
+.survey-heading-row { display: flex; gap: 1rem; align-items: baseline; justify-content: space-between; }
+.survey-help { color: #555; }
+.survey-status { position: sticky; top: .5rem; z-index: 1100; max-width: 760px; margin: 0 auto 1rem; }
+.survey-status:not(:empty) { padding: .9rem 1rem; border-radius: 8px; background: #fff4e5; border: 1px solid #f0c36d; }
+.survey-status.is-error { color: var(--survey-danger); background: #fff1f0; border-color: #f4b4ae; }
+.survey-status.is-success { color: #176b3a; background: #edf9f1; border-color: #9ed5b0; }
+
+.survey-work-card { outline: 3px solid transparent; outline-offset: -3px; }
+.survey-work-card.is-selected { outline-color: var(--survey-accent); background: var(--survey-selected); }
+.survey-select-button, .survey-primary-button, .survey-secondary-button {
+  appearance: none; border: 0; border-radius: 7px; cursor: pointer; font: inherit; font-weight: 700; padding: .8rem 1.1rem;
+}
+.survey-select-button, .survey-primary-button { color: #fff; background: var(--survey-accent); }
+.survey-select-button:hover, .survey-primary-button:hover { background: var(--survey-accent-dark); }
+.survey-select-button[aria-pressed="true"] { background: #444; }
+.survey-select-button:disabled, .survey-primary-button:disabled { cursor: not-allowed; color: #777; background: #ddd; }
+.survey-secondary-button { color: #222; border: 1px solid #aaa; background: #fff; }
+.work-comment-panel { margin-top: 1rem; }
+.work-comment-panel label, .overall-comment-section label { display: block; margin-bottom: .4rem; font-weight: 700; }
+.work-comment-panel textarea, .overall-comment-section textarea { box-sizing: border-box; width: 100%; resize: vertical; padding: .75rem; border: 1px solid #aaa; border-radius: 6px; font: inherit; line-height: 1.6; }
+.character-count { display: block; color: #666; font-size: .8rem; text-align: right; }
+
+.overall-comment-section, .survey-review, .survey-complete { max-width: 860px; margin: 3rem auto 0; padding: 1.5rem; border-radius: 10px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.12); }
+.survey-actions { display: flex; justify-content: center; margin: 2rem 0; }
+.survey-actions-split { justify-content: space-between; gap: 1rem; }
+.review-work { padding: 1rem 0; border-bottom: 1px solid var(--survey-border); }
+.review-work h3 { margin: 0 0 .5rem; }
+.review-comment { white-space: pre-wrap; }
+.survey-complete { text-align: center; }
+.survey-link-button { display: inline-block; margin-top: 1rem; text-decoration: none; }
+.survey-is-busy { opacity: .65; pointer-events: none; }
+
+@media (max-width: 640px) {
+  .survey-page { padding: 1rem; }
+  .survey-heading-row { display: block; }
+  .survey-gallery { grid-template-columns: 1fr; padding: 0; }
+  .overall-comment-section, .survey-review, .survey-complete { padding: 1rem; }
+}
