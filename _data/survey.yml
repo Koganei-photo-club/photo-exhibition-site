@@ -1,0 +1,5 @@
+# Supabase の Project URL と Publishable key を設定してください。
+# Publishable key はブラウザで利用する前提のキーです。service_role key は絶対に置かないでください。
+supabase_url: "https://lzalrxbbdmunlhommaah.supabase.co"
+supabase_publishable_key: "sb_publishable_q4mU99-OM9mmL-45_v9QTA_18pgJ6Xh"
+asset_version: "20260720-2"
