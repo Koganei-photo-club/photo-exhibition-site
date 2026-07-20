@@ -14,6 +14,20 @@
 
 `service_role` keyは管理者専用です。リポジトリ、HTML、JavaScriptには絶対に保存しないでください。
 
+## 2026年度 夏写真展「夏彩」
+
+公開期間は、Asia/Tokyoで2026年8月23日05:00から8月27日23:59までです。
+
+作品番号が未確定の初期登録には、`supabase/migrations/20260720_add_2026_summer_exhibition.sql`を使用します。このSQLは`work_ids`を空配列、`is_accepting_responses`を`false`にするため、実行しただけでは回答受付は始まりません。
+
+作品確定後に次の順番で設定します。
+
+1. `_data/works/2026-summer.yml`へ作品を登録する。
+2. Supabaseの`work_ids`を実際の作品番号へ更新する。
+3. 作品一覧ページとアンケートページを作成する。
+4. `2026/summer/index.html`の`survey_url`と`works_url`を設定する。
+5. 表示とテスト回答を確認してから`is_accepting_responses`を`true`にする。
+
 ## QR入口の状態切替
 
 QRコードは展示ごとの固定入口（例: `/2026/summer/`）を指します。入口とアンケート直リンクは、Supabaseのサーバー時刻で次のように切り替わります。
