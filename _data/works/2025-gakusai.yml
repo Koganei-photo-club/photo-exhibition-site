@@ -19,8 +19,8 @@
     used: false # true/false
     note: "" # 例: 「被写体以外の領域でノイズ低減を実施」
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai01_s.jpeg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai01_s.jpeg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai01_s_wm.jpeg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai01_s_wm.jpeg"
   description: |
     あけぼの山農業公園にて撮影。
 
@@ -66,8 +66,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai03_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai03_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai03_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai03_s_wm.jpg"
   description: |
     
 
@@ -88,8 +88,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai04_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai04_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai04_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai04_s_wm.jpg"
   description: |
     水飛沫が夕陽に照らされて、まるで火花が散っているように見えた。連写していなかったことを少し後悔している。
 
@@ -110,8 +110,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai05_s.jpeg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai05_s.jpeg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai05_s_wm.jpeg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai05_s_wm.jpeg"
   description: |
     
 
@@ -132,8 +132,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai06_s.jpeg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai06_s.jpeg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai06_s_wm.jpeg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai06_s_wm.jpeg"
   description: |
     江ノ島にて撮影。
 
@@ -154,8 +154,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai07_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai07_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai07_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai07_s_wm.jpg"
   description: |
     
 
@@ -176,8 +176,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai08_s.jpeg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai08_s.jpeg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai08_s_wm.jpeg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai08_s_wm.jpeg"
   description: |
     
 
@@ -198,8 +198,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai09_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai09_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai09_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai09_s_wm.jpg"
   description: |
     昨年の全体撮影会にて撮影。
     夕陽の光を受けながら、空へと航路を描く機体。
@@ -223,8 +223,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai10_s.JPG"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai10_s.JPG"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai10_s_wm.JPG"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai10_s_wm.JPG"
   description: |
     
 
@@ -245,8 +245,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai11_s.jpeg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai11_s.jpeg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai11_s_wm.jpeg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai11_s_wm.jpeg"
   description: |
     
 
@@ -267,8 +267,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai12_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai12_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai12_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai12_s_wm.jpg"
   description: |
     
 
@@ -289,8 +289,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai13_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai13_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai13_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai13_s_wm.jpg"
   description: |
     北海道旭川市　旭山動物園にて撮影。
     オオカミを見たくて旭山動物園へ。初めはただの犬のようでしたが、時より見せる凛々しい姿に感動。
@@ -312,8 +312,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai14_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai14_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai14_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai14_s_wm.jpg"
   description: |
     
 
@@ -334,8 +334,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai15_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai15_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai15_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai15_s_wm.jpg"
   description: |
     
 
@@ -356,8 +356,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai16_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai16_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai16_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai16_s_wm.jpg"
   description: |
     
 
@@ -378,8 +378,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai17_s.jpeg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai17_s.jpeg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai17_s_wm.jpeg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai17_s_wm.jpeg"
   description: |
     
 
@@ -422,8 +422,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai19_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai19_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai19_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai19_s_wm.jpg"
   description: |
     
 
@@ -444,8 +444,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai20_s.jpeg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai20_s.jpeg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai20_s_wm.jpeg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai20_s_wm.jpeg"
   description: |
     
 
@@ -466,8 +466,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai21_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai21_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai21_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai21_s_wm.jpg"
   description: |
     
 
@@ -488,8 +488,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai22_s.JPG"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai22_s.JPG"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai22_s_wm.JPG"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai22_s_wm.JPG"
   description: |
     
 
@@ -510,8 +510,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai23_s.jpeg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai23_s.jpeg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai23_s_wm.jpeg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai23_s_wm.jpeg"
   description: |
 
 
@@ -532,8 +532,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai24_s.JPG"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai24_s.JPG"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai24_s_wm.JPG"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai24_s_wm.JPG"
   description: |
 
 
@@ -554,8 +554,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai25_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai25_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai25_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai25_s_wm.jpg"
   description: |
 
 
@@ -576,8 +576,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai26_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai26_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai26_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai26_s_wm.jpg"
   description: |
 
 
@@ -598,8 +598,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai27_s.jpeg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai27_s.jpeg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai27_s_wm.jpeg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai27_s_wm.jpeg"
   description: |
     2025年10月2日埼玉県日高市巾着田にて撮影。
     朝五時に起きて、写真部の先輩とドライブへ。「花を撮るなら朝だね。」という言葉が心に残っている。四限からは授業。ねむたい。
@@ -621,8 +621,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai28_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai28_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai28_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai28_s_wm.jpg"
   description: |
     
 
@@ -643,8 +643,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai29_s.jpeg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai29_s.jpeg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai29_s_wm.jpeg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai29_s_wm.jpeg"
   description: |
     今年の調布花火を撮影しました。あいにくの雨でしたが、無事最後まで見ることができました✨
 
@@ -665,8 +665,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai30_s.JPG"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai30_s.JPG"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai30_s_wm.JPG"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai30_s_wm.JPG"
   description: |
 
 
@@ -687,8 +687,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai31_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai31_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai31_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai31_s_wm.jpg"
   description: |
     1月に渋谷スカイで撮影しました。夕焼けがとても綺麗でした！
 
@@ -731,8 +731,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai33_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai33_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai33_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai33_s_wm.jpg"
   description: |
 
 
@@ -753,8 +753,8 @@
     used: true
     note: "写真の一部にAIによる雲を生成しました。"
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai34_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai34_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai34_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai34_s_wm.jpg"
   description: |
 
 
@@ -775,8 +775,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai35_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai35_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai35_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai35_s_wm.jpg"
   description: |
 
 
@@ -797,8 +797,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai36_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai36_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai36_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai36_s_wm.jpg"
   description: |
 
 
@@ -819,8 +819,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai37_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai37_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai37_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai37_s_wm.jpg"
   description: |
     神奈川県鎌倉市　西方寺にて撮影。
     しゃがみ込んでひたすら待っていたら目の前に止まってくれて撮らせてくれた。秋ならではの蜜を楽しんでいるのだろう。
@@ -842,8 +842,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai38_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai38_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai38_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai38_s_wm.jpg"
   description: |
 
 
@@ -864,8 +864,8 @@
     used: false
     note: ""
   images:
-    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai39_s.jpg"
-    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai39_s.jpg"
+    thumb: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai39_s_wm.jpg"
+    full: "/2025/gakusai/2af262a415562b8849d6ab105bd0f438e062dd5912de91680106214e07239450/public-images/2025-gakusai39_s_wm.jpg"
   description: |
 
 - "no": 40
