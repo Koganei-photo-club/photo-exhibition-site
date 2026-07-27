@@ -4,56 +4,67 @@ layout: default
 <section
   id="exhibition-entry"
   class="exhibition-entry"
+  data-language-root
   data-exhibition-key="{{ page.exhibition_key | escape }}"
   data-supabase-url="{{ site.data.survey.supabase_url | escape }}"
   data-supabase-key="{{ site.data.survey.supabase_publishable_key | escape }}"
+  data-language="{{ page.lang | default: 'ja' }}"
+  data-auto-language="{{ page.auto_language | default: false }}"
+  data-english-url="{{ page.en_url | default: '/2026/summer/en/' | relative_url }}"
 >
+  <nav class="language-switch" aria-label="{% if page.lang == 'en' %}Language{% else %}言語{% endif %}">
+    <a data-language="ja" href="{{ page.ja_url | default: '/2026/summer/' | relative_url }}?lang=ja">日本語</a>
+    <span aria-hidden="true">/</span>
+    <a data-language="en" href="{{ page.en_url | default: '/2026/summer/en/' | relative_url }}?lang=en">English</a>
+  </nav>
+
   <div class="entry-intro">
     {{ content }}
   </div>
 
   <div id="entry-status" class="entry-status" role="status" aria-live="polite">
-    公開状態を確認しています…
+    {% if page.lang == "en" %}Checking availability…{% else %}公開状態を確認しています…{% endif %}
   </div>
 
   <section id="entry-upcoming" class="entry-panel" hidden>
-    <h2>公開前です</h2>
-    <p>作品一覧とアンケートは、写真展の開始後にご利用いただけます。</p>
+    <h2>{% if page.lang == "en" %}Coming soon{% else %}公開前です{% endif %}</h2>
+    <p>{% if page.lang == "en" %}The gallery and survey will be available after the exhibition opens.{% else %}作品一覧とアンケートは、写真展の開始後にご利用いただけます。{% endif %}</p>
     <p id="entry-opens-at"></p>
   </section>
 
   <section id="entry-open" class="entry-panel" hidden>
-    <h2>ご来場ありがとうございます</h2>
-    <p>作品をご覧いただき、お気に入りの作品を1〜3作品選んでください。</p>
+    <h2>{% if page.lang == "en" %}Thank you for visiting{% else %}ご来場ありがとうございます{% endif %}</h2>
+    <p>{% if page.lang == "en" %}Browse the works and select one to three of your favorites.{% else %}作品をご覧いただき、お気に入りの作品を1〜3作品選んでください。{% endif %}</p>
     <div class="entry-actions">
       {% assign has_entry_links = false %}
       {% if page.survey_url and page.survey_url != "" %}
       {% assign has_entry_links = true %}
-      <a class="entry-primary-button" href="{{ page.survey_url | relative_url }}">アンケート付き作品一覧</a>
+      <a class="entry-primary-button preserve-preview" href="{{ page.survey_url | relative_url }}">{% if page.lang == "en" %}Gallery and survey{% else %}アンケート付き作品一覧{% endif %}</a>
       {% endif %}
       {% if page.works_url and page.works_url != "" %}
       {% assign has_entry_links = true %}
-      <a class="entry-secondary-button" href="{{ page.works_url | relative_url }}">作品一覧のみ</a>
+      <a class="entry-secondary-button preserve-preview" href="{{ page.works_url | relative_url }}">{% if page.lang == "en" %}Gallery only{% else %}作品一覧のみ{% endif %}</a>
       {% endif %}
     </div>
     {% unless has_entry_links %}
-    <p>現在、公開ページを準備しています。</p>
+    <p>{% if page.lang == "en" %}The public pages are being prepared.{% else %}現在、公開ページを準備しています。{% endif %}</p>
     {% endunless %}
   </section>
 
   <section id="entry-closed" class="entry-panel" hidden>
-    <h2>写真展は終了しました</h2>
-    <p>ご来場ならびにアンケートへのご協力、ありがとうございました。</p>
-    <p>このQRコードからの作品閲覧とアンケート受付は終了しています。</p>
+    <h2>{% if page.lang == "en" %}The exhibition has ended{% else %}写真展は終了しました{% endif %}</h2>
+    <p>{% if page.lang == "en" %}Thank you for visiting and for completing our survey.{% else %}ご来場ならびにアンケートへのご協力、ありがとうございました。{% endif %}</p>
+    <p>{% if page.lang == "en" %}The gallery and survey are no longer available from this QR code.{% else %}このQRコードからの作品閲覧とアンケート受付は終了しています。{% endif %}</p>
   </section>
 
   <section id="entry-unavailable" class="entry-panel" hidden>
-    <h2>現在ご利用いただけません</h2>
-    <p>公開状態を確認できませんでした。時間をおいて、もう一度お試しください。</p>
+    <h2>{% if page.lang == "en" %}Currently unavailable{% else %}現在ご利用いただけません{% endif %}</h2>
+    <p>{% if page.lang == "en" %}We could not confirm availability. Please try again later.{% else %}公開状態を確認できませんでした。時間をおいて、もう一度お試しください。{% endif %}</p>
   </section>
 
   <noscript>
-    <p class="entry-noscript">このページの表示にはJavaScriptが必要です。</p>
+    <p class="entry-noscript">{% if page.lang == "en" %}JavaScript is required to view this page.{% else %}このページの表示にはJavaScriptが必要です。{% endif %}</p>
   </noscript>
 </section>
 <script type="module" src="{{ '/js/exhibition-entry.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
+<script src="{{ '/js/exhibition-language.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>

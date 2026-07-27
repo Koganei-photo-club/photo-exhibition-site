@@ -3,6 +3,17 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const entry = document.querySelector("#exhibition-entry");
 if (!entry) throw new Error("Exhibition entry was not found.");
 
+const language = entry.dataset.language === "en" ? "en" : "ja";
+const messages = {
+  ja: {
+    preview: "プレビュー表示中です。アンケートの回答受付は有効になっていません。",
+    opensAt: "公開予定",
+  },
+  en: {
+    preview: "Preview mode. Survey submissions are not enabled.",
+    opensAt: "Opens",
+  },
+}[language];
 const status = entry.querySelector("#entry-status");
 const panels = {
   upcoming: entry.querySelector("#entry-upcoming"),
@@ -17,19 +28,17 @@ function showPanel(state, opensAt = null, isPreview = false) {
   Object.values(panels).forEach((panel) => { panel.hidden = true; });
   const selected = panels[state] || panels.unavailable;
   selected.hidden = false;
-  status.textContent = isPreview
-    ? "プレビュー表示中です。アンケートの回答受付は有効になっていません。"
-    : "";
+  status.textContent = isPreview ? messages.preview : "";
   status.classList.toggle("entry-status-preview", isPreview);
 
   if (state === "upcoming" && opensAt) {
     const target = entry.querySelector("#entry-opens-at");
-    const formatted = new Intl.DateTimeFormat("ja-JP", {
+    const formatted = new Intl.DateTimeFormat(language === "en" ? "en-US" : "ja-JP", {
       dateStyle: "long",
       timeStyle: "short",
       timeZone: "Asia/Tokyo",
     }).format(new Date(opensAt));
-    target.textContent = `公開予定：${formatted}`;
+    target.textContent = `${messages.opensAt}: ${formatted}`;
   }
 }
 

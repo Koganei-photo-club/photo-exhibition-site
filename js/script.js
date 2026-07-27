@@ -4,6 +4,7 @@
 let lastScrollY = window.scrollY;
 const header = document.getElementById("main-header");
 const navbar = document.querySelector(".navbar");
+const pageIsEnglish = document.documentElement.lang === "en";
 
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY;
@@ -38,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function() {
   overlay.className = "popup-overlay";
   overlay.innerHTML = `
     <div class="popup-content">
-      <p>Instagramアカウントを表示しますか？</p>
+      <p>${pageIsEnglish ? "Open this Instagram account?" : "Instagramアカウントを表示しますか？"}</p>
       <div class="popup-buttons">
-        <button class="confirm">表示する</button>
-        <button class="cancel">閉じる</button>
+        <button class="confirm">${pageIsEnglish ? "Open" : "表示する"}</button>
+        <button class="cancel">${pageIsEnglish ? "Close" : "閉じる"}</button>
       </div>
     </div>
   `;
@@ -117,7 +118,7 @@ function setupCollapsibles() {
       desc.style.maxHeight = collapsed + "px";
       requestAnimationFrame(() => {
         desc.style.maxHeight = target + "px";
-        button.textContent = "閉じる";
+        button.textContent = pageIsEnglish ? "Close" : "閉じる";
       });
       // アニメ終了後に auto に戻すと折返しにも強い
       setTimeout(() => {
@@ -133,7 +134,7 @@ function setupCollapsibles() {
       desc.style.maxHeight = desc.scrollHeight + "px";
       requestAnimationFrame(() => {
         desc.style.maxHeight = collapsed + "px";
-        button.textContent = "もっと見る";
+        button.textContent = pageIsEnglish ? "Read more" : "もっと見る";
       });
       setTimeout(() => { animating = false; }, 550);
     };

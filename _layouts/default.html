@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="{{ page.lang | default: 'ja' }}">
 <head>
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
@@ -29,8 +29,8 @@
     <div class="header-content">
       <a href="{{ "/" | relative_url }}"><img src="{{ "/images/club-icon.JPG" | relative_url }}" alt="写真部アイコン" class="logo">
       <div class="site-title">
-        <h1>法政大学 小金井写真部</h1>
-        <p>写真展</p>
+        <h1>{% if page.lang == "en" %}Hosei Koganei Photo Club{% else %}法政大学 小金井写真部{% endif %}</h1>
+        <p>{% if page.lang == "en" %}Photo Exhibition{% else %}写真展{% endif %}</p>
       </div></a>
     </div>
   </header>
@@ -52,13 +52,13 @@
         {% for season in exhibitions %}
           {% assign data = season[1] %}
           {% if data.published %}
-            <li><a href="{{ data.url | relative_url }}">{{ data.title }}</a></li>
+            <li><a href="{{ data.url | relative_url }}">{% if page.lang == "en" and data.title_en %}{{ data.title_en }}{% else %}{{ data.title }}{% endif %}</a></li>
           {% else %}
-            <li><a href="#" class="disabled">{{ data.title }}</a></li>
+            <li><a href="#" class="disabled">{% if page.lang == "en" and data.title_en %}{{ data.title_en }}{% else %}{{ data.title }}{% endif %}</a></li>
           {% endif %}
         {% endfor %}
       {% else %}
-        <li><a href="#" class="disabled">現在の年度データがありません</a></li>
+        <li><a href="#" class="disabled">{% if page.lang == "en" %}No exhibition data for the current academic year{% else %}現在の年度データがありません{% endif %}</a></li>
       {% endif %}
     </ul>
   </nav>
@@ -70,8 +70,17 @@
 
   <!-- フッター -->
 <footer>
-  <p>Copyright &copy; 2025 法政大学 小金井写真部 All Rights Reserved.</p>
+  <p>Copyright &copy; 2025 {% if page.lang == "en" %}Hosei Koganei Photo Club{% else %}法政大学 小金井写真部{% endif %} All Rights Reserved.</p>
   <p>Designed by Takakichi</p>
+  {% if page.lang == "en" %}
+  <p class="disclaimer">
+    “Hosei Koganei Photo Club” is the commonly used name of the officially recognized Hosei University Photographic Technology Research Society.
+  </p>
+  <p class="copyright-notice">
+    Copyright in the photographs, text, and other works on this website belongs to their respective creators.
+    Unauthorized reproduction, copying, alteration, or secondary use is prohibited.
+  </p>
+  {% else %}
   <p class="disclaimer">
     「法政大学 小金井写真部」は、法政大学公認団体「法政大学 写真技術研究会」の通称です。
   </p>
@@ -79,12 +88,13 @@
     本サイトに掲載されている写真および文章等の著作物は、各作品の作者に著作権が帰属します。
     無断での転載・複製・改変・二次利用を固く禁じます。
   </p>
+  {% endif %}
   <div class="sns-links">
     <a href="https://www.instagram.com/photo_koganei" target="_blank">Instagram</a> |
     <a href="https://x.com/koganei_photo" target="_blank">X</a>
   </div>
 </footer>
-<script src="{{ "/js/script.js" | relative_url }}"></script>
+<script src="{{ "/js/script.js" | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
 <script src="{{ "/js/exhibition-control.js" | relative_url }}"></script>
 </body>
 </html>
