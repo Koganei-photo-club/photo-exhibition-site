@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<section class="works-page">
+  {{ content }}
+
+  {% assign works = site.data.works[page.works_data] %}
+  {% if works and works != empty %}
+    {% assign works = works | sort: "no" %}
+    <div class="work-gallery">
+      {% for w in works %}
+      {% assign num = w.no | plus: 0 %}
+      <article class="work-card">
+        <div class="photo-wrapper" data-full="{{ w.images.full | relative_url }}">
+          <div class="photo" style="background-image: url('{{ w.images.thumb | relative_url }}');"></div>
+          <div class="photo-overlay"></div>
+        </div>
+
+        <div class="work-info">
+          <p class="work-number">No.{% if num < 10 %}0{% endif %}{{ num }}</p>
+          <p class="work-title">{{ w.title }}</p>
+          <p class="work-author"{% if w.instagram %} data-instagram="{{ w.instagram | escape }}"{% endif %}>
+            {{ w.author }}
+            {% if w.instagram %}
+              {% include insta-icon.html %}
+            {% endif %}
+          </p>
+
+          {% if w.location %}<p class="work-location">撮影地: {{ w.location }}</p>{% endif %}
+          {% if w.shot_date %}<p class="work-date">撮影日: {{ w.shot_date }}</p>{% endif %}
+          {% if w.camera %}<p class="work-camera">{{ w.camera }}</p>{% endif %}
+          {% if w.lens %}<p class="work-lens">{{ w.lens }}</p>{% endif %}
+
+          {% if w.description and w.description != "" %}
+          <p class="work-description">{{ w.description }}</p>
+          <button class="toggle-desc" type="button">もっと見る</button>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="works-empty-message">作品情報を準備しています。公開開始までお待ちください。</p>
+  {% endif %}
+</section>
