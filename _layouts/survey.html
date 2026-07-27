@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="{{ page.lang | default: 'ja' }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,16 @@
   <link rel="stylesheet" href="{{ '/css/survey.css' | relative_url }}?v={{ site.data.survey.asset_version | escape }}">
 </head>
 <body>
-  <main class="survey-page">
+  <main
+    class="survey-page"
+    data-language-root
+    data-language="{{ page.lang | default: 'ja' }}"
+  >
+    <nav class="language-switch" aria-label="{% if page.lang == 'en' %}Language{% else %}言語{% endif %}">
+      <a data-language="ja" href="{{ page.ja_url | default: '/2026/summer/survey/' | relative_url }}?lang=ja">日本語</a>
+      <span aria-hidden="true">/</span>
+      <a data-language="en" href="{{ page.en_url | default: '/2026/summer/en/survey/' | relative_url }}?lang=en">English</a>
+    </nav>
     {{ content }}
 
     {% assign works = site.data.works[page.works_data] | sort: "no" %}
@@ -21,6 +30,7 @@
       data-supabase-key="{{ site.data.survey.supabase_publishable_key | escape }}"
       data-readonly-url="{{ page.readonly_url | relative_url }}"
       data-entry-url="{{ page.entry_url | default: page.readonly_url | relative_url }}"
+      data-language="{{ page.lang | default: 'ja' }}"
       data-state-loading="true"
       novalidate
     >
@@ -28,13 +38,13 @@
 
       <section id="survey-editor" aria-labelledby="works-heading">
         <div class="survey-heading-row">
-          <h2 id="works-heading">お気に入りの作品</h2>
-          <p><strong id="selection-count">0</strong> / 3作品を選択中</p>
+          <h2 id="works-heading">{% if page.lang == "en" %}Your favorite works{% else %}お気に入りの作品{% endif %}</h2>
+          <p>{% if page.lang == "en" %}<strong id="selection-count">0</strong> / 3 selected{% else %}<strong id="selection-count">0</strong> / 3作品を選択中{% endif %}</p>
         </div>
-        <p class="survey-help">1作品以上、3作品以下を選択してください。作品への感想は任意です。</p>
+        <p class="survey-help">{% if page.lang == "en" %}Select between one and three works. Comments on individual works are optional.{% else %}1作品以上、3作品以下を選択してください。作品への感想は任意です。{% endif %}</p>
 
         {% if works == empty %}
-        <p class="survey-empty-message">作品情報を準備しています。公開開始までお待ちください。</p>
+        <p class="survey-empty-message">{% if page.lang == "en" %}The gallery is being prepared. Please check back when the exhibition opens.{% else %}作品情報を準備しています。公開開始までお待ちください。{% endif %}</p>
         {% endif %}
 
         <div class="work-gallery survey-gallery">
@@ -47,11 +57,11 @@
             </div>
             <div class="work-info">
               <p class="work-number">No.{% if num < 10 %}0{% endif %}{{ num }}</p>
-              <p class="work-title">{{ w.title }}</p>
+              <p class="work-title">{% if page.lang == "en" %}{{ w.title_en | default: w.title }}{% else %}{{ w.title }}{% endif %}</p>
               <p class="work-author">{{ w.author }}</p>
-              <button class="survey-select-button" type="button" aria-pressed="false">この作品を選ぶ</button>
+              <button class="survey-select-button" type="button" aria-pressed="false">{% if page.lang == "en" %}Select this work{% else %}この作品を選ぶ{% endif %}</button>
               <div class="work-comment-panel" hidden>
-                <label for="comment-{{ forloop.index }}">この作品への感想（任意）</label>
+                <label for="comment-{{ forloop.index }}">{% if page.lang == "en" %}Comment on this work (optional){% else %}この作品への感想（任意）{% endif %}</label>
                 <textarea id="comment-{{ forloop.index }}" class="work-comment" maxlength="1000" rows="4"></textarea>
                 <span class="character-count" aria-hidden="true">0 / 1000</span>
               </div>
@@ -61,40 +71,41 @@
         </div>
 
         <section class="overall-comment-section" aria-labelledby="overall-heading">
-          <h2 id="overall-heading">写真展全体への感想</h2>
-          <label for="overall-comment">ご感想をお聞かせください（任意）</label>
+          <h2 id="overall-heading">{% if page.lang == "en" %}Comments on the exhibition{% else %}写真展全体への感想{% endif %}</h2>
+          <label for="overall-comment">{% if page.lang == "en" %}Tell us what you thought (optional){% else %}ご感想をお聞かせください（任意）{% endif %}</label>
           <textarea id="overall-comment" maxlength="2000" rows="7"></textarea>
           <span class="character-count" aria-hidden="true">0 / 2000</span>
         </section>
 
         <div class="survey-actions">
-          <button id="review-button" class="survey-primary-button" type="button" disabled>回答内容を確認</button>
+          <button id="review-button" class="survey-primary-button" type="button" disabled>{% if page.lang == "en" %}Review response{% else %}回答内容を確認{% endif %}</button>
         </div>
       </section>
 
       <section id="survey-review" class="survey-review" aria-labelledby="review-heading" hidden>
-        <h2 id="review-heading">回答内容の確認</h2>
-        <p>以下の内容で送信します。送信後は変更できません。</p>
+        <h2 id="review-heading">{% if page.lang == "en" %}Review your response{% else %}回答内容の確認{% endif %}</h2>
+        <p>{% if page.lang == "en" %}Your response will be submitted as shown below and cannot be edited afterward.{% else %}以下の内容で送信します。送信後は変更できません。{% endif %}</p>
         <div id="review-content"></div>
         <div class="survey-actions survey-actions-split">
-          <button id="edit-button" class="survey-secondary-button" type="button">編集する</button>
-          <button id="submit-button" class="survey-primary-button" type="submit">送信する</button>
+          <button id="edit-button" class="survey-secondary-button" type="button">{% if page.lang == "en" %}Edit{% else %}編集する{% endif %}</button>
+          <button id="submit-button" class="survey-primary-button" type="submit">{% if page.lang == "en" %}Submit{% else %}送信する{% endif %}</button>
         </div>
       </section>
 
       <section id="survey-complete" class="survey-complete" aria-labelledby="complete-heading" hidden>
-        <h2 id="complete-heading">ご協力ありがとうございました</h2>
-        <p>アンケートへの回答を受け付けました。</p>
-        <a class="survey-primary-button survey-link-button" href="{{ page.readonly_url | relative_url }}">作品一覧を見る</a>
+        <h2 id="complete-heading">{% if page.lang == "en" %}Thank you for your response{% else %}ご協力ありがとうございました{% endif %}</h2>
+        <p>{% if page.lang == "en" %}Your survey response has been received.{% else %}アンケートへの回答を受け付けました。{% endif %}</p>
+        <a class="survey-primary-button survey-link-button preserve-preview" href="{{ page.readonly_url | relative_url }}">{% if page.lang == "en" %}View the gallery{% else %}作品一覧を見る{% endif %}</a>
       </section>
 
       <section id="survey-unavailable" class="survey-complete" aria-labelledby="unavailable-heading" hidden>
-        <h2 id="unavailable-heading">現在ご利用いただけません</h2>
-        <p id="survey-unavailable-message">公開状態を確認できませんでした。</p>
-        <a id="survey-entry-link" class="survey-primary-button survey-link-button" href="{{ page.entry_url | default: page.readonly_url | relative_url }}">写真展ページへ戻る</a>
+        <h2 id="unavailable-heading">{% if page.lang == "en" %}Currently unavailable{% else %}現在ご利用いただけません{% endif %}</h2>
+        <p id="survey-unavailable-message">{% if page.lang == "en" %}We could not confirm availability.{% else %}公開状態を確認できませんでした。{% endif %}</p>
+        <a id="survey-entry-link" class="survey-primary-button survey-link-button preserve-preview" href="{{ page.entry_url | default: page.readonly_url | relative_url }}">{% if page.lang == "en" %}Return to the exhibition page{% else %}写真展ページへ戻る{% endif %}</a>
       </section>
     </form>
   </main>
   <script type="module" src="{{ '/js/survey.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
+  <script src="{{ '/js/exhibition-language.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
 </body>
 </html>

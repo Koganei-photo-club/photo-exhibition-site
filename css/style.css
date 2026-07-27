@@ -4,6 +4,22 @@ body {
   margin: 0;
 }
 
+.language-switch {
+  margin-bottom: 1rem;
+  text-align: right;
+}
+
+.language-switch a {
+  padding: 0.35rem;
+  color: #0e4f83;
+}
+
+.language-switch a[aria-current="page"] {
+  color: #444;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 /* 上段ヘッダー */
 #main-header {
   position: fixed;

@@ -3,6 +3,50 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const form = document.querySelector("#survey-form");
 if (!form) throw new Error("Survey form was not found.");
 
+const language = form.dataset.language === "en" ? "en" : "ja";
+const previewMode = new URLSearchParams(window.location.search).get("preview") === "open";
+const messages = {
+  ja: {
+    closedHeading: "写真展は終了しました",
+    closedMessage: "ご来場ならびにアンケートへのご協力、ありがとうございました。",
+    upcomingHeading: "アンケートはまだ始まっていません",
+    upcomingMessage: "写真展の開始後にご利用いただけます。",
+    unavailableHeading: "現在ご利用いただけません",
+    unavailableMessage: "公開状態を確認できませんでした。時間をおいて、もう一度お試しください。",
+    select: "この作品を選ぶ",
+    deselect: "選択を取り消す",
+    selectedWorks: (count) => `選択した作品（${count}作品）`,
+    noWorkComment: "（作品への感想なし）",
+    overallHeading: "写真展全体への感想",
+    noOverallComment: "（感想なし）",
+    sending: "回答を送信しています…",
+    connectionError: "アンケートの接続設定が完了していません。",
+    received: "回答を受け付けました。",
+    duplicate: "この端末からの回答はすでに受け付けています。",
+    sendError: "送信できませんでした。通信環境を確認し、もう一度お試しください。",
+    preview: "プレビュー表示中です。入力内容は送信できません。",
+  },
+  en: {
+    closedHeading: "The exhibition has ended",
+    closedMessage: "Thank you for visiting and for completing our survey.",
+    upcomingHeading: "The survey has not opened yet",
+    upcomingMessage: "It will be available after the exhibition opens.",
+    unavailableHeading: "Currently unavailable",
+    unavailableMessage: "We could not confirm availability. Please try again later.",
+    select: "Select this work",
+    deselect: "Remove selection",
+    selectedWorks: (count) => `Selected works (${count})`,
+    noWorkComment: "(No comment on this work)",
+    overallHeading: "Comments on the exhibition",
+    noOverallComment: "(No comment)",
+    sending: "Submitting your response…",
+    connectionError: "The survey connection has not been configured.",
+    received: "Your response has been received.",
+    duplicate: "A response from this device has already been received.",
+    sendError: "Your response could not be submitted. Check your connection and try again.",
+    preview: "Preview mode. Responses cannot be submitted.",
+  },
+}[language];
 const exhibitionKey = form.dataset.exhibitionKey;
 const supabaseUrl = form.dataset.supabaseUrl;
 const supabaseKey = form.dataset.supabaseKey;
@@ -40,14 +84,14 @@ function showUnavailable(publicState = "unavailable") {
   setStatus();
 
   if (publicState === "closed") {
-    unavailableHeading.textContent = "写真展は終了しました";
-    unavailableMessage.textContent = "ご来場ならびにアンケートへのご協力、ありがとうございました。";
+    unavailableHeading.textContent = messages.closedHeading;
+    unavailableMessage.textContent = messages.closedMessage;
   } else if (publicState === "upcoming") {
-    unavailableHeading.textContent = "アンケートはまだ始まっていません";
-    unavailableMessage.textContent = "写真展の開始後にご利用いただけます。";
+    unavailableHeading.textContent = messages.upcomingHeading;
+    unavailableMessage.textContent = messages.upcomingMessage;
   } else {
-    unavailableHeading.textContent = "現在ご利用いただけません";
-    unavailableMessage.textContent = "公開状態を確認できませんでした。時間をおいて、もう一度お試しください。";
+    unavailableHeading.textContent = messages.unavailableHeading;
+    unavailableMessage.textContent = messages.unavailableMessage;
   }
 }
 
@@ -77,7 +121,7 @@ function updateSelectionUi() {
     const panel = card.querySelector(".work-comment-panel");
     card.classList.toggle("is-selected", selected);
     button.setAttribute("aria-pressed", String(selected));
-    button.textContent = selected ? "選択を取り消す" : "この作品を選ぶ";
+    button.textContent = selected ? messages.deselect : messages.select;
     button.disabled = !selected && limitReached;
     panel.hidden = !selected;
   });
@@ -96,7 +140,7 @@ function selectedAnswers() {
 function renderReview() {
   reviewContent.replaceChildren();
   const heading = document.createElement("h3");
-  heading.textContent = `選択した作品（${selectedIds.size}作品）`;
+  heading.textContent = messages.selectedWorks(selectedIds.size);
   reviewContent.append(heading);
 
   selectedAnswers().forEach((answer) => {
@@ -106,16 +150,16 @@ function renderReview() {
     title.textContent = `No.${answer.work_id.padStart(2, "0")} ${answer.title}`;
     const comment = document.createElement("p");
     comment.className = "review-comment";
-    comment.textContent = answer.comment || "（作品への感想なし）";
+    comment.textContent = answer.comment || messages.noWorkComment;
     item.append(title, comment);
     reviewContent.append(item);
   });
 
   const overallHeading = document.createElement("h3");
-  overallHeading.textContent = "写真展全体への感想";
+  overallHeading.textContent = messages.overallHeading;
   const overall = document.createElement("p");
   overall.className = "review-comment";
-  overall.textContent = overallComment.value.trim() || "（感想なし）";
+  overall.textContent = overallComment.value.trim() || messages.noOverallComment;
   reviewContent.append(overallHeading, overall);
 }
 
@@ -148,13 +192,17 @@ editButton.addEventListener("click", () => {
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (selectedIds.size < 1 || selectedIds.size > 3) return;
+  if (previewMode) {
+    setStatus(messages.preview, "error");
+    return;
+  }
 
   submitButton.disabled = true;
   form.classList.add("survey-is-busy");
-  setStatus("回答を送信しています…");
+  setStatus(messages.sending);
 
   try {
-    if (!supabase) throw new Error("アンケートの接続設定が完了していません。");
+    if (!supabase) throw new Error(messages.connectionError);
     const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
     if (sessionError) throw sessionError;
     if (!sessionData.session) {
@@ -173,12 +221,12 @@ form.addEventListener("submit", async (event) => {
     localStorage.setItem(storageKey, new Date().toISOString());
     review.hidden = true;
     complete.hidden = false;
-    setStatus("回答を受け付けました。", "success");
+    setStatus(messages.received, "success");
     complete.scrollIntoView({ behavior: "smooth", block: "start" });
   } catch (error) {
     console.error(error);
     const duplicate = error?.code === "23505" || /already submitted/i.test(error?.message || "");
-    setStatus(duplicate ? "この端末からの回答はすでに受け付けています。" : "送信できませんでした。通信環境を確認し、もう一度お試しください。", "error");
+    setStatus(duplicate ? messages.duplicate : messages.sendError, "error");
     submitButton.disabled = false;
   } finally {
     form.classList.remove("survey-is-busy");
@@ -196,13 +244,15 @@ async function initializeSurvey() {
   });
 
   try {
-    const publicState = await getPublicState();
-    if (publicState !== "open") {
-      showUnavailable(publicState);
-      return;
+    if (!previewMode) {
+      const publicState = await getPublicState();
+      if (publicState !== "open") {
+        showUnavailable(publicState);
+        return;
+      }
     }
 
-    if (localStorage.getItem(storageKey)) {
+    if (!previewMode && localStorage.getItem(storageKey)) {
       window.location.replace(readonlyUrl);
       return;
     }
@@ -211,6 +261,7 @@ async function initializeSurvey() {
     editor.hidden = false;
     form.dataset.stateLoading = "false";
     updateSelectionUi();
+    if (previewMode) setStatus(messages.preview);
   } catch (error) {
     console.error("Failed to load exhibition state.", error);
     showUnavailable();

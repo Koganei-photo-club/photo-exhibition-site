@@ -17,13 +17,16 @@
 2026:
   summer:
     title: "2026夏写真展"
+    title_en: "2026 Summer Exhibition"
     url: "/2026/summer/"
     published: false
   gakusai:
     title: "2026学祭写真展"
+    title_en: "2026 Festival Exhibition"
     url: "/2026/gakusai/"
     published: false
   winter:
     title: "2026冬写真展"
+    title_en: "2026 Winter Exhibition"
     url: "/2026/winter/"
     published: false

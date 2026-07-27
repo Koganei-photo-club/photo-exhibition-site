@@ -2,7 +2,17 @@
 layout: default
 ---
 
-<section class="works-page">
+<section
+  class="works-page"
+  data-language-root
+  data-language="{{ page.lang | default: 'ja' }}"
+>
+  <nav class="language-switch" aria-label="{% if page.lang == 'en' %}Language{% else %}言語{% endif %}">
+    <a data-language="ja" href="{{ page.ja_url | default: '/2026/summer/works/' | relative_url }}?lang=ja">日本語</a>
+    <span aria-hidden="true">/</span>
+    <a data-language="en" href="{{ page.en_url | default: '/2026/summer/en/works/' | relative_url }}?lang=en">English</a>
+  </nav>
+
   {{ content }}
 
   {% assign works = site.data.works[page.works_data] %}
@@ -19,7 +29,7 @@ layout: default
 
         <div class="work-info">
           <p class="work-number">No.{% if num < 10 %}0{% endif %}{{ num }}</p>
-          <p class="work-title">{{ w.title }}</p>
+          <p class="work-title">{% if page.lang == "en" %}{{ w.title_en | default: w.title }}{% else %}{{ w.title }}{% endif %}</p>
           <p class="work-author"{% if w.instagram %} data-instagram="{{ w.instagram | escape }}"{% endif %}>
             {{ w.author }}
             {% if w.instagram %}
@@ -27,20 +37,21 @@ layout: default
             {% endif %}
           </p>
 
-          {% if w.location %}<p class="work-location">撮影地: {{ w.location }}</p>{% endif %}
-          {% if w.shot_date %}<p class="work-date">撮影日: {{ w.shot_date }}</p>{% endif %}
+          {% if w.location %}<p class="work-location">{% if page.lang == "en" %}Location{% else %}撮影地{% endif %}: {% if page.lang == "en" %}{{ w.location_en | default: w.location }}{% else %}{{ w.location }}{% endif %}</p>{% endif %}
+          {% if w.shot_date %}<p class="work-date">{% if page.lang == "en" %}Date taken{% else %}撮影日{% endif %}: {{ w.shot_date }}</p>{% endif %}
           {% if w.camera %}<p class="work-camera">{{ w.camera }}</p>{% endif %}
           {% if w.lens %}<p class="work-lens">{{ w.lens }}</p>{% endif %}
 
           {% if w.description and w.description != "" %}
-          <p class="work-description">{{ w.description }}</p>
-          <button class="toggle-desc" type="button">もっと見る</button>
+          <p class="work-description">{% if page.lang == "en" %}{{ w.description_en | default: w.description }}{% else %}{{ w.description }}{% endif %}</p>
+          <button class="toggle-desc" type="button">{% if page.lang == "en" %}Read more{% else %}もっと見る{% endif %}</button>
           {% endif %}
         </div>
       </article>
       {% endfor %}
     </div>
   {% else %}
-    <p class="works-empty-message">作品情報を準備しています。公開開始までお待ちください。</p>
+    <p class="works-empty-message">{% if page.lang == "en" %}The gallery is being prepared. Please check back when the exhibition opens.{% else %}作品情報を準備しています。公開開始までお待ちください。{% endif %}</p>
   {% endif %}
 </section>
+<script src="{{ '/js/exhibition-language.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
