@@ -11,6 +11,7 @@
 .survey-form[data-state-loading="true"] #survey-editor { display: none; }
 .survey-heading-row { display: flex; gap: 1rem; align-items: baseline; justify-content: space-between; }
 .survey-help { color: #555; }
+.survey-empty-message { max-width: 760px; margin: 2rem auto; padding: 1rem; border-radius: 8px; background: #f4f6f8; text-align: center; }
 .survey-status { position: sticky; top: .5rem; z-index: 1100; max-width: 760px; margin: 0 auto 1rem; }
 .survey-status:not(:empty) { padding: .9rem 1rem; border-radius: 8px; background: #fff4e5; border: 1px solid #f0c36d; }
 .survey-status.is-error { color: var(--survey-danger); background: #fff1f0; border-color: #f4b4ae; }

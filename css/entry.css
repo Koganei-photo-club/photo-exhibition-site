@@ -7,15 +7,31 @@
 .exhibition-entry {
   box-sizing: border-box;
   max-width: 760px;
-  min-height: 100vh;
   margin: 0 auto;
-  padding: 3rem 1.25rem;
 }
 
 .entry-intro { text-align: center; }
 .entry-intro h1 { margin-bottom: .5rem; }
+.entry-dm-image { margin: 1.5rem auto; }
+.entry-dm-image img {
+  display: block;
+  width: 100%;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .14);
+}
+.entry-event-details {
+  margin: 1.5rem auto;
+  text-align: left;
+}
+.entry-event-details p { margin: .55rem 0; }
 .entry-status { margin: 2rem 0 1rem; text-align: center; color: #555; }
 .entry-status:empty { display: none; }
+.entry-status-preview {
+  padding: .75rem 1rem;
+  color: #6b4f00;
+  border: 1px solid #e2c76b;
+  border-radius: 7px;
+  background: #fff8d8;
+}
 
 .entry-panel {
   margin-top: 1.5rem;
@@ -42,6 +58,5 @@
 .entry-noscript { padding: 1rem; text-align: center; color: #8a1c13; background: #fff1f0; }
 
 @media (max-width: 560px) {
-  .exhibition-entry { padding-top: 2rem; }
   .entry-actions { display: grid; }
 }

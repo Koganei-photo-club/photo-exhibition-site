@@ -33,6 +33,10 @@
         </div>
         <p class="survey-help">1作品以上、3作品以下を選択してください。作品への感想は任意です。</p>
 
+        {% if works == empty %}
+        <p class="survey-empty-message">作品情報を準備しています。公開開始までお待ちください。</p>
+        {% endif %}
+
         <div class="work-gallery survey-gallery">
           {% for w in works %}
           {% assign num = w.no | plus: 0 %}
