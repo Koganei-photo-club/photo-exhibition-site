@@ -10,7 +10,7 @@
   margin: 0 auto;
 }
 
-.entry-intro { text-align: center; }
+.entry-intro { text-align: left; }
 .entry-intro h1 { margin-bottom: .5rem; }
 .entry-dm-image { margin: 1.5rem auto; }
 .entry-dm-image img {
