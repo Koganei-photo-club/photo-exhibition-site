@@ -25,6 +25,13 @@
 .entry-event-details p { margin: .55rem 0; }
 .entry-status { margin: 2rem 0 1rem; text-align: center; color: #555; }
 .entry-status:empty { display: none; }
+.entry-status-preview {
+  padding: .75rem 1rem;
+  color: #6b4f00;
+  border: 1px solid #e2c76b;
+  border-radius: 7px;
+  background: #fff8d8;
+}
 
 .entry-panel {
   margin-top: 1.5rem;

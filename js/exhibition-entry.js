@@ -11,11 +11,16 @@ const panels = {
   unavailable: entry.querySelector("#entry-unavailable"),
 };
 
-function showPanel(state, opensAt = null) {
+const previewState = new URLSearchParams(window.location.search).get("preview");
+
+function showPanel(state, opensAt = null, isPreview = false) {
   Object.values(panels).forEach((panel) => { panel.hidden = true; });
   const selected = panels[state] || panels.unavailable;
   selected.hidden = false;
-  status.textContent = "";
+  status.textContent = isPreview
+    ? "プレビュー表示中です。アンケートの回答受付は有効になっていません。"
+    : "";
+  status.classList.toggle("entry-status-preview", isPreview);
 
   if (state === "upcoming" && opensAt) {
     const target = entry.querySelector("#entry-opens-at");
@@ -29,6 +34,11 @@ function showPanel(state, opensAt = null) {
 }
 
 async function loadState() {
+  if (previewState === "open") {
+    showPanel("open", null, true);
+    return;
+  }
+
   const supabaseUrl = entry.dataset.supabaseUrl;
   const supabaseKey = entry.dataset.supabaseKey;
   const exhibitionKey = entry.dataset.exhibitionKey;
