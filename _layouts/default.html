@@ -8,6 +8,9 @@
   {% if page.noindex %}<meta name="robots" content="noindex, nofollow, noarchive">{% endif %}
   <meta name="google-site-verification" content="WHZ2rUQexij4kTH4cHRvs5pDwTP-0kCc_QZaRWW92ME" />
   <link rel="stylesheet" href="{{ "/css/style.css" | relative_url }}">
+  {% if page.extra_css %}
+  <link rel="stylesheet" href="{{ page.extra_css | relative_url }}?v={{ site.data.survey.asset_version | escape }}">
+  {% endif %}
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <!-- Favicon -->
   <link rel="icon" href="{{ "/images/favicon.png" | relative_url }}" type="image/png">
