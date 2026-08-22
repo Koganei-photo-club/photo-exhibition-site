@@ -234,6 +234,52 @@ footer .disclaimer {
 }
 
 /* --- 画像部分 --- */
+.photo-unavailable {
+  box-sizing: border-box;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 2rem;
+  color: #555;
+  text-align: center;
+  background: #ececec;
+}
+
+.photo-unavailable img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+.photo-unavailable strong {
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+}
+
+.photo-unavailable span {
+  font-size: 0.9rem;
+}
+
+.work-card .photo-wrapper.photo-unavailable {
+  cursor: default;
+}
+
+.work-card .photo-unavailable img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  background: transparent;
+}
+
+.photo-wrapper.photo-unavailable::after {
+  content: none;
+}
 .work-card img {
   width: 100%;
   height: 300px;           /* 高さ固定（縦写真も収まる） */
