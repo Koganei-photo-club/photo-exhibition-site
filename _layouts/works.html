@@ -22,10 +22,18 @@ layout: default
       {% for w in works %}
       {% assign num = w.no | plus: 0 %}
       <article class="work-card">
+        {% if w.image_public == false %}
+        <div class="photo-wrapper photo-unavailable" role="img" aria-label="{% if page.lang == 'en' %}Image not available{% else %}作品画像は非公開です{% endif %}">
+          <img src="{{ '/images/club-icon.JPG' | relative_url }}" alt="" aria-hidden="true" />
+          <strong>NO IMAGE</strong>
+          <span>{% if page.lang == "en" %}The image is not available online.{% else %}作品画像は非公開です{% endif %}</span>
+        </div>
+        {% else %}
         <div class="photo-wrapper" data-full="{{ w.images.full | relative_url }}">
           <div class="photo" style="background-image: url('{{ w.images.thumb | relative_url }}');"></div>
           <div class="photo-overlay"></div>
         </div>
+        {% endif %}
 
         <div class="work-info">
           <p class="work-number">No.{% if num < 10 %}0{% endif %}{{ num }}</p>
