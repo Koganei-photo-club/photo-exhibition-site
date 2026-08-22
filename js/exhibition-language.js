@@ -26,7 +26,7 @@
     return;
   }
 
-  document.querySelectorAll("[data-language]").forEach((link) => {
+  document.querySelectorAll("a[data-language]").forEach((link) => {
     const linkLanguage = link.dataset.language;
     if (linkLanguage === currentLanguage) link.setAttribute("aria-current", "page");
 
