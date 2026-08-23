@@ -1,7 +1,7 @@
 ---
 - 'no': 1
   title: 藍
-  author: Ryoji
+  author: りょうじ
   image_public: true
   description: ''
   images:
@@ -25,7 +25,7 @@
     full: "/2026/summer/public-images/works/2026-summer03_wm.jpg"
 - 'no': 4
   title: 新緑の香りを感じて
-  author: Hikita
+  author: 疋田悠真
   image_public: false
   description: ''
 - 'no': 5
@@ -46,7 +46,7 @@
     full: "/2026/summer/public-images/works/2026-summer06_wm.jpg"
 - 'no': 7
   title: ふじ
-  author: Gucchi
+  author: fujiryu
   image_public: true
   description: ''
   images:
@@ -62,7 +62,7 @@
     full: "/2026/summer/public-images/works/2026-summer08_wm.jpg"
 - 'no': 9
   title: 光にのって
-  author: Hikita
+  author: 疋田悠真
   image_public: false
   description: ''
 - 'no': 10
@@ -115,7 +115,7 @@
     full: "/2026/summer/public-images/works/2026-summer15_wm.jpg"
 - 'no': 16
   title: SsEhTiSbUuNyAa
-  author: Gucchi
+  author: fujiryu
   image_public: true
   description: ''
   images:
@@ -163,7 +163,7 @@
     full: "/2026/summer/public-images/works/2026-summer21_wm.jpg"
 - 'no': 22
   title: 朝日を浴びて
-  author: Hikita
+  author: 疋田悠真
   image_public: false
   description: ''
 - 'no': 23
@@ -176,7 +176,7 @@
     full: "/2026/summer/public-images/works/2026-summer23_wm.jpg"
 - 'no': 24
   title: 閑寂
-  author: Tada
+  author: 多田光希
   image_public: true
   description: ''
   images:
@@ -192,7 +192,7 @@
     full: "/2026/summer/public-images/works/2026-summer25_wm.jpg"
 - 'no': 26
   title: 街影
-  author: Tada
+  author: 多田光希
   image_public: true
   description: ''
   images:
@@ -200,7 +200,7 @@
     full: "/2026/summer/public-images/works/2026-summer26_wm.jpg"
 - 'no': 27
   title: 親子
-  author: Gucchi
+  author: fujiryu
   image_public: true
   description: ''
   images:
