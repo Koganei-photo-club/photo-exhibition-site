@@ -167,8 +167,12 @@ document.addEventListener("DOMContentLoaded", () => {
   lightbox.appendChild(img);
   document.body.appendChild(lightbox);
 
-  // 開く（PCクリック/スマホタップどちらもOK）
-  document.querySelectorAll(".photo-wrapper").forEach(wrapper => {
+  // 作品一覧ページでは中央の専用領域をクリック／タップした時だけ開く。
+  // click はスクロール後には発火しないため、touchend を直接扱わない。
+  document.querySelectorAll(".works-page .photo-wrapper").forEach(wrapper => {
+    const trigger = wrapper.querySelector(".photo-overlay");
+    if (!trigger) return;
+
     const open = () => {
       const url = wrapper.dataset.full;
       if (!url) return;
@@ -176,8 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
       img.style.transform = "scale(1)";
       lightbox.classList.add("active");
     };
-    wrapper.addEventListener("click", open);
-    wrapper.addEventListener("touchend", open, { passive: true });
+    trigger.addEventListener("click", open);
   });
 
   // 背景クリックで閉じる
