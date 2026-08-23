@@ -31,7 +31,11 @@ layout: default
         {% else %}
         <div class="photo-wrapper" data-full="{{ w.images.full | relative_url }}">
           <div class="photo" style="background-image: url('{{ w.images.thumb | relative_url }}');"></div>
-          <div class="photo-overlay"></div>
+          <button
+            class="photo-overlay"
+            type="button"
+            aria-label="{% if page.lang == 'en' %}Enlarge this image{% else %}この作品画像を拡大表示{% endif %}"
+          ></button>
         </div>
         {% endif %}
 
