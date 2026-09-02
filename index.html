@@ -81,13 +81,14 @@ title: "法政大学 小金井写真部 写真展サイト &#8211; Hosei Univers
     {% for season in year[1] %}
       {% assign data = season[1] %}
       <div class="event-link">
-        {% if data.published %}
+        {% if data.status == "ended" %}
+          <a href="{{ data.url | relative_url }}" class="button">{{ data.title }}（終了）</a>
+        {% elsif data.published %}
           <a href="{{ data.url | relative_url }}" class="button">{{ data.title }}</a>
         {% else %}
-          <a href="#" class="button disabled">{{ data.title }}（準備中）</a>
+          <span class="button disabled">{{ data.title }}（準備中）</span>
         {% endif %}
       </div>
     {% endfor %}
   </div>
 {% endfor %}
-

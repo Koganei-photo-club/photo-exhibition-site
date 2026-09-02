@@ -51,7 +51,7 @@
       {% if exhibitions %}
         {% for season in exhibitions %}
           {% assign data = season[1] %}
-          {% if data.published %}
+          {% if data.published or data.status == "ended" %}
             <li><a href="{{ data.url | relative_url }}">{% if page.lang == "en" and data.title_en %}{{ data.title_en }}{% else %}{{ data.title }}{% endif %}</a></li>
           {% else %}
             <li><a href="#" class="disabled">{% if page.lang == "en" and data.title_en %}{{ data.title_en }}{% else %}{{ data.title }}{% endif %}</a></li>

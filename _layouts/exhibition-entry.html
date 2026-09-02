@@ -22,6 +22,13 @@ layout: default
     {{ content }}
   </div>
 
+  {% if page.archived %}
+  <section class="entry-panel">
+    <h2>{% if page.lang == "en" %}The exhibition has ended{% else %}写真展は終了しました{% endif %}</h2>
+    <p>{% if page.lang == "en" %}Thank you for visiting and for completing our survey.{% else %}ご来場ならびにアンケートへのご協力、ありがとうございました。{% endif %}</p>
+    <p>{% if page.lang == "en" %}This page remains available as an exhibition record. The gallery and survey are no longer public.{% else %}このページは開催記録として公開しています。作品一覧の公開およびアンケートの受付は終了しました。{% endif %}</p>
+  </section>
+  {% else %}
   <div id="entry-status" class="entry-status" role="status" aria-live="polite">
     {% if page.lang == "en" %}Checking availability…{% else %}公開状態を確認しています…{% endif %}
   </div>
@@ -65,6 +72,9 @@ layout: default
   <noscript>
     <p class="entry-noscript">{% if page.lang == "en" %}JavaScript is required to view this page.{% else %}このページの表示にはJavaScriptが必要です。{% endif %}</p>
   </noscript>
+  {% endif %}
 </section>
+{% unless page.archived %}
 <script type="module" src="{{ '/js/exhibition-entry.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
+{% endunless %}
 <script src="{{ '/js/exhibition-language.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
