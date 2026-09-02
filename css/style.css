@@ -599,6 +599,12 @@ footer .disclaimer {
 .event-link {
   margin: 0.5em 0;
 }
+.event-link .button {
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  width: 100%;
+}
 .event-link a {
   display: block;
   padding: 0.6em;
