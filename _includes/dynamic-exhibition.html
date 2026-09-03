@@ -1,0 +1,17 @@
+<section
+  id="dynamic-exhibition"
+  class="works-page dynamic-exhibition"
+  data-mode="{{ page.exhibition_mode }}"
+  data-supabase-url="{{ site.data.portal.supabase_url | escape }}"
+  data-supabase-key="{{ site.data.portal.supabase_publishable_key | escape }}"
+  data-base-url="{{ '/exhibition/' | relative_url }}"
+  data-logo-url="{{ '/images/club-icon.JPG' | relative_url }}"
+>
+  <nav class="language-switch" aria-label="言語 / Language">
+    <a href="#" data-language="ja">日本語</a><span aria-hidden="true"> / </span><a href="#" data-language="en">English</a>
+  </nav>
+  <div id="dynamic-status" class="entry-status" role="status" aria-live="polite">写真展情報を読み込んでいます…</div>
+  <div id="dynamic-content"></div>
+  <noscript><p class="entry-noscript">このページの表示にはJavaScriptが必要です。 / JavaScript is required.</p></noscript>
+</section>
+<script type="module" src="{{ '/js/dynamic-exhibition.js' | relative_url }}?v={{ site.data.portal.asset_version | escape }}"></script>

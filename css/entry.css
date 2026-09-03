@@ -73,3 +73,10 @@
 @media (max-width: 560px) {
   .entry-actions { display: grid; }
 }
+
+.dynamic-exhibition { min-height: 45vh; }
+.dynamic-exhibition .entry-status:empty { display: none; }
+.dynamic-catchphrase { font-size: 1.15rem; font-weight: 700; }
+.dynamic-description { white-space: pre-wrap; }
+.dynamic-exhibition .work-gallery { margin-top: 1.5rem; }
+.dynamic-exhibition .photo-unavailable img { max-width: 88px; max-height: 88px; object-fit: contain; }
