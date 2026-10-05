@@ -4,7 +4,8 @@ const root = document.querySelector("#dynamic-exhibition");
 if (!root) throw new Error("Dynamic exhibition root was not found.");
 
 const params = new URLSearchParams(location.search);
-const key = params.get("key") || "";
+const defaultKey = root.dataset.defaultKey || "";
+const key = params.get("key") || defaultKey;
 const mode = root.dataset.mode;
 const storageKey = `photo-exhibition:${key}:language`;
 const requested = params.get("lang");
@@ -22,7 +23,7 @@ const esc = (value = "") => String(value).replace(/[&<>'"]/g, (char) => ({
 const local = (ja, en) => language === "en" && en?.trim() ? en : ja || "";
 const queryUrl = (path, lang = language) => {
   const url = new URL(path, location.origin);
-  url.searchParams.set("key", key);
+  if (!defaultKey) url.searchParams.set("key", key);
   url.searchParams.set("lang", lang);
   return url.href;
 };
@@ -32,6 +33,16 @@ const publicImageUrl = (path) => path
 const fmt = (value, options) => value
   ? new Intl.DateTimeFormat(language === "en" ? "en-US" : "ja-JP", options).format(new Date(value))
   : "";
+const safeInstagramUrl = (value) => {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:"
+      && ["instagram.com", "www.instagram.com"].includes(url.hostname.toLowerCase())
+      && !url.port
+      && /^\/[A-Za-z0-9._]{1,30}\/$/.test(url.pathname)
+      && !url.search && !url.hash ? url.href : "";
+  } catch { return ""; }
+};
 
 root.querySelectorAll("[data-language]").forEach((link) => {
   const lang = link.dataset.language;
@@ -48,10 +59,15 @@ const unavailable = (message) => {
 };
 
 function workCard(work, selectable = false) {
-  const image = work.imagePublic && work.publicImagePath
-    ? `<div class="photo-wrapper" data-full="${esc(publicImageUrl(work.publicImagePath))}"><div class="photo" style="background-image:url('${esc(publicImageUrl(work.publicImagePath))}')"></div><button class="photo-overlay" type="button" aria-label="${text("この作品画像を拡大表示", "Enlarge this image")}"></button></div>`
-    : `<div class="photo-wrapper photo-unavailable" role="img"><img src="${esc(root.dataset.logoUrl)}" alt=""><strong>NO IMAGE</strong><span>${text("作品画像は非公開です", "The image is not available online.")}</span></div>`;
-  return `<article class="work-card${selectable ? " survey-work-card" : ""}" data-work-id="${esc(work.workUuid)}">${image}<div class="work-info"><p class="work-number">No.${esc(work.displayNo)}</p><p class="work-title">${esc(local(work.title, work.titleEn))}</p><p class="work-author">${esc(work.artist)}</p>${work.camera ? `<p class="work-camera">${esc(work.camera)}</p>` : ""}${work.lensOther ? `<p class="work-lens">${esc(work.lensOther)}</p>` : ""}${local(work.description, work.descriptionEn) ? `<p class="work-description">${esc(local(work.description, work.descriptionEn))}</p>` : ""}${selectable ? `<button class="survey-select-button" type="button" aria-pressed="false">${text("この作品を選ぶ", "Select this work")}</button><div class="work-comment-panel" hidden><label>${text("この作品への感想（任意）", "Comment on this work (optional)")}<textarea class="work-comment" maxlength="1000" rows="4"></textarea></label></div>` : ""}</div></article>`;
+  const image = work.imageState === "public_image" && work.publicImagePath
+    ? `<div class="photo-wrapper" role="img" aria-label="${esc(local(work.title, work.titleEn))}" data-full="${esc(publicImageUrl(work.publicImagePath))}"><div class="photo" style="background-image:url('${esc(publicImageUrl(work.publicImagePath))}')"></div><button class="photo-overlay" type="button" aria-label="${text("この作品画像を拡大表示", "Enlarge this image")}"></button></div>`
+    : `<div class="photo-wrapper photo-unavailable" role="img" aria-label="${text("作品画像は非公開です", "The image is not available online.")}"><img src="${esc(root.dataset.logoUrl)}" alt=""><strong>NO IMAGE</strong><span>${text("作品画像は非公開です", "The image is not available online.")}</span></div>`;
+  const instagramUrl = safeInstagramUrl(work.instagramUrl);
+  const instagram = instagramUrl ? `<a class="dynamic-instagram-link" href="${esc(instagramUrl)}" target="_blank" rel="noopener noreferrer"><img src="${esc(root.dataset.instagramIconUrl)}" alt=""><span>Instagram</span></a>` : "";
+  const aiDeclaration = work.aiProcessingDeclaration === "declared"
+    ? `<div class="work-ai-declaration"><strong>${text("画像生成・合成等：あり", "Image generation/compositing: declared")}</strong>${work.aiProcessingDetails ? `<p>${esc(work.aiProcessingDetails)}</p>` : ""}</div>`
+    : work.aiProcessingDeclaration === "none" ? `<div class="work-ai-declaration"><strong>${text("画像生成・合成等：なし", "Image generation/compositing: none")}</strong></div>` : "";
+  return `<article class="work-card${selectable ? " survey-work-card" : ""}" data-work-id="${esc(work.workUuid)}">${image}<div class="work-info"><p class="work-number">No.${esc(work.displayNo)}</p><p class="work-title">${esc(local(work.title, work.titleEn))}</p><p class="work-author">${esc(work.artist)}</p>${work.camera ? `<p class="work-camera">${esc(work.camera)}</p>` : ""}${work.lensOther ? `<p class="work-lens">${esc(work.lensOther)}</p>` : ""}${local(work.description, work.descriptionEn) ? `<p class="work-description">${esc(local(work.description, work.descriptionEn))}</p>` : ""}${aiDeclaration}${instagram}${selectable ? `<button class="survey-select-button" type="button" aria-pressed="false">${text("この作品を選ぶ", "Select this work")}</button><div class="work-comment-panel" hidden><label>${text("この作品への感想（任意）", "Comment on this work (optional)")}<textarea class="work-comment" maxlength="1000" rows="4"></textarea></label></div>` : ""}</div></article>`;
 }
 
 function setupLightbox() {
@@ -64,20 +80,33 @@ function setupLightbox() {
     box.classList.add("active");
   });
   box.onclick = (event) => { if (event.target === box) box.classList.remove("active"); };
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") box.classList.remove("active"); });
 }
 
 function renderEntry(data) {
   const ended = data.siteStatus === "ended";
-  content.innerHTML = `<div class="entry-intro"><h1>${esc(local(data.title, data.titleEn))}</h1>${local(data.catchphrase, data.catchphraseEn) ? `<p class="dynamic-catchphrase">${esc(local(data.catchphrase, data.catchphraseEn))}</p>` : ""}<div class="dm-image entry-dm-image"><img src="${esc(publicImageUrl(data.dmImagePath))}" alt="${esc(local(data.title, data.titleEn))}"></div><div class="entry-event-details"><p><strong>${text("開催日時：", "Dates: ")}</strong>${esc(fmt(data.startsAt, { dateStyle: "long", timeStyle: "short" }))}${data.endsAt ? ` – ${esc(fmt(data.endsAt, { dateStyle: "long", timeStyle: "short" }))}` : ""}</p><p><strong>${text("会場：", "Venue: ")}</strong>${esc(local(data.place, data.placeEn))}</p>${local(data.additionalInfo, data.additionalInfoEn) ? `<p>${esc(local(data.additionalInfo, data.additionalInfoEn))}</p>` : ""}</div><p class="dynamic-description">${esc(local(data.description, data.descriptionEn))}</p></div><section class="entry-panel"><h2>${ended ? text("写真展は終了しました", "The exhibition has ended") : text("ご来場ありがとうございます", "Thank you for visiting")}</h2>${ended ? `<p>${text("このページは開催記録として公開しています。作品一覧とアンケートの受付は終了しました。", "This page remains available as an exhibition record. The gallery and survey are no longer public.")}</p>` : `<div class="entry-actions"><a class="entry-primary-button" href="${esc(queryUrl(`${root.dataset.baseUrl}survey/`))}">${text("アンケート付き作品一覧", "Gallery and survey")}</a><a class="entry-secondary-button" href="${esc(queryUrl(`${root.dataset.baseUrl}works/`))}">${text("作品一覧のみ", "Gallery only")}</a></div>`}</section>`;
+  const hasWorks = data.works.length > 0;
+  const dm = data.dmImagePath
+    ? `<div class="dm-image entry-dm-image"><img id="dynamic-dm-image" src="${esc(publicImageUrl(data.dmImagePath))}" alt="${esc(local(data.title, data.titleEn))}"><div id="dynamic-dm-placeholder" class="dynamic-dm-placeholder" hidden>${text("DMは現在準備中です", "Flyer coming soon")}</div></div>`
+    : `<div class="dm-image entry-dm-image dynamic-dm-placeholder">${text("DMは現在準備中です", "Flyer coming soon")}</div>`;
+  content.innerHTML = `<div class="entry-intro"><p class="dynamic-event-name">${esc(data.eventName || "")}</p><h1>${esc(local(data.title, data.titleEn))}</h1>${local(data.catchphrase, data.catchphraseEn) ? `<p class="dynamic-catchphrase">${esc(local(data.catchphrase, data.catchphraseEn))}</p>` : ""}${dm}<div class="entry-event-details"><p><strong>${text("開催日時：", "Dates: ")}</strong>${esc(fmt(data.startsAt, { dateStyle: "long", timeStyle: "short" }))}${data.endsAt ? ` – ${esc(fmt(data.endsAt, { dateStyle: "long", timeStyle: "short" }))}` : ""}</p><p><strong>${text("会場：", "Venue: ")}</strong>${esc(local(data.place, data.placeEn))}</p>${local(data.additionalInfo, data.additionalInfoEn) ? `<p>${esc(local(data.additionalInfo, data.additionalInfoEn))}</p>` : ""}</div><p class="dynamic-description">${esc(local(data.description, data.descriptionEn))}</p></div><section class="entry-panel"><h2>${ended ? text("写真展は終了しました", "The exhibition has ended") : text("ご来場ありがとうございます", "Thank you for visiting")}</h2>${ended ? `<p>${text("このページは開催記録として公開しています。作品一覧とアンケートの受付は終了しました。", "This page remains available as an exhibition record. The gallery and survey are no longer public.")}</p>` : hasWorks ? `<div class="entry-actions"><a class="entry-primary-button" href="${esc(queryUrl(`${root.dataset.baseUrl}survey/`))}">${text("アンケート付き作品一覧", "Gallery and survey")}</a><a class="entry-secondary-button" href="${esc(queryUrl(`${root.dataset.baseUrl}works/`))}">${text("作品一覧のみ", "Gallery only")}</a></div>` : `<p class="works-empty-message">${text("作品は現在準備中です。", "The gallery is being prepared.")}</p><p>${text("アンケートは作品公開後にご利用いただけます。", "The survey will be available after the works are published.")}</p>`}</section>`;
+  content.querySelector("#dynamic-dm-image")?.addEventListener("error", (event) => {
+    event.currentTarget.hidden = true;
+    content.querySelector("#dynamic-dm-placeholder").hidden = false;
+  });
 }
 
 function renderWorks(data) {
   if (data.siteStatus === "ended") return unavailable(text("作品一覧の公開は終了しました。", "The gallery is no longer public."));
-  content.innerHTML = `<h1>${esc(local(data.title, data.titleEn))}</h1><p>${text("作品一覧", "Gallery")}</p><div class="work-gallery">${data.works.map((work) => workCard(work)).join("")}</div><p><a class="button" href="${esc(queryUrl(root.dataset.baseUrl))}">${text("写真展ページへ戻る", "Return to the exhibition page")}</a></p>`;
+  content.innerHTML = `<h1>${esc(local(data.title, data.titleEn))}</h1><p>${text("作品一覧", "Gallery")}${data.publicationVersionNo ? ` · Publication v${esc(data.publicationVersionNo)}` : ""}</p>${data.works.length ? `<div class="work-gallery">${data.works.map((work) => workCard(work)).join("")}</div>` : `<p class="works-empty-message">${text("作品は現在準備中です。", "The gallery is being prepared.")}</p>`}<p><a class="button" href="${esc(queryUrl(root.dataset.baseUrl))}">${text("写真展ページへ戻る", "Return to the exhibition page")}</a></p>`;
   setupLightbox();
 }
 
 async function renderSurvey(data, client) {
+  if (!data.publicationAvailable || !data.works.length) {
+    content.innerHTML = `<section class="entry-panel"><h1>${esc(local(data.title, data.titleEn))}</h1><p class="works-empty-message">${text("作品は現在準備中です。アンケートは作品公開後にご利用いただけます。", "The gallery is being prepared. The survey will be available after the works are published.")}</p><p><a class="button" href="${esc(queryUrl(root.dataset.baseUrl))}">${text("写真展ページへ戻る", "Return to the exhibition page")}</a></p></section>`;
+    return;
+  }
   const { data: stateRows, error } = await client.rpc("get_exhibition_survey_state", { p_exhibition_key: key });
   if (error) throw error;
   const surveyState = Array.isArray(stateRows) ? stateRows[0]?.state : stateRows?.state;

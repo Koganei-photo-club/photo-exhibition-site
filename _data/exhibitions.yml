@@ -12,7 +12,7 @@
   winter:
     title: "2025冬写真展"
     url: "/2025/winter/"
-    published: false
+    published: true
 
 2026:
   summer:
