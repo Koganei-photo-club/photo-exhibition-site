@@ -78,6 +78,7 @@
 .dynamic-exhibition .entry-status:empty { display: none; }
 .dynamic-event-name { margin: 0 0 0.5rem; color: #555; font-weight: 700; }
 .dynamic-dm-placeholder { display: grid; min-height: 260px; place-items: center; color: #555; border: 1px dashed var(--entry-border); background: #f6f6f6; }
+.dynamic-dm-placeholder[hidden] { display: none; }
 .dynamic-catchphrase { font-size: 1.15rem; font-weight: 700; }
 .dynamic-instagram-link { display: inline-flex; align-items: center; align-self: flex-start; gap: .45rem; margin-top: .8rem; }
 .dynamic-instagram-link img { width: 1.3rem; height: 1.3rem; object-fit: contain; background: transparent; }
