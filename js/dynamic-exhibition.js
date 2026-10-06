@@ -59,6 +59,8 @@ const unavailable = (message) => {
 };
 
 function workCard(work, selectable = false) {
+  const isSmartphoneGroup = work.displayItemType === "smartphone_group";
+  const selectionId = work.displayItemUuid || work.workUuid;
   const image = work.imageState === "public_image" && work.publicImagePath
     ? `<div class="photo-wrapper" role="img" aria-label="${esc(local(work.title, work.titleEn))}" data-full="${esc(publicImageUrl(work.publicImagePath))}"><div class="photo" style="background-image:url('${esc(publicImageUrl(work.publicImagePath))}')"></div><button class="photo-overlay" type="button" aria-label="${text("この作品画像を拡大表示", "Enlarge this image")}"></button></div>`
     : `<div class="photo-wrapper photo-unavailable" role="img" aria-label="${text("作品画像は非公開です", "The image is not available online.")}"><img src="${esc(root.dataset.logoUrl)}" alt=""><strong>NO IMAGE</strong><span>${text("作品画像は非公開です", "The image is not available online.")}</span></div>`;
@@ -67,7 +69,7 @@ function workCard(work, selectable = false) {
   const aiDeclaration = work.aiProcessingDeclaration === "declared"
     ? `<div class="work-ai-declaration"><strong>${text("画像生成・合成等：あり", "Image generation/compositing: declared")}</strong>${work.aiProcessingDetails ? `<p>${esc(work.aiProcessingDetails)}</p>` : ""}</div>`
     : work.aiProcessingDeclaration === "none" ? `<div class="work-ai-declaration"><strong>${text("画像生成・合成等：なし", "Image generation/compositing: none")}</strong></div>` : "";
-  return `<article class="work-card${selectable ? " survey-work-card" : ""}" data-work-id="${esc(work.workUuid)}">${image}<div class="work-info"><p class="work-number">No.${esc(work.displayNo)}</p><p class="work-title">${esc(local(work.title, work.titleEn))}</p><p class="work-author">${esc(work.artist)}</p>${work.camera ? `<p class="work-camera">${esc(work.camera)}</p>` : ""}${work.lensOther ? `<p class="work-lens">${esc(work.lensOther)}</p>` : ""}${local(work.description, work.descriptionEn) ? `<p class="work-description">${esc(local(work.description, work.descriptionEn))}</p>` : ""}${aiDeclaration}${instagram}${selectable ? `<button class="survey-select-button" type="button" aria-pressed="false">${text("この作品を選ぶ", "Select this work")}</button><div class="work-comment-panel" hidden><label>${text("この作品への感想（任意）", "Comment on this work (optional)")}<textarea class="work-comment" maxlength="1000" rows="4"></textarea></label></div>` : ""}</div></article>`;
+  return `<article class="work-card${isSmartphoneGroup ? " smartphone-group-card" : ""}${selectable ? " survey-work-card" : ""}" data-selection-id="${esc(selectionId)}" data-display-item-type="${esc(work.displayItemType || "regular_work")}">${image}<div class="work-info"><p class="work-number">No.${esc(work.displayNo)}</p><p class="work-title">${esc(local(work.title, work.titleEn))}</p>${isSmartphoneGroup ? `<p class="work-author">${text("匿名・集合展示", "Anonymous collective display")}</p>${work.smartphoneWorkCount ? `<p class="work-camera">${text(`${work.smartphoneWorkCount}点の作品で構成`, `Composed of ${work.smartphoneWorkCount} works`)}</p>` : ""}` : `<p class="work-author">${esc(work.artist)}</p>${work.camera ? `<p class="work-camera">${esc(work.camera)}</p>` : ""}${work.lensOther ? `<p class="work-lens">${esc(work.lensOther)}</p>` : ""}`}${local(work.description, work.descriptionEn) ? `<p class="work-description">${esc(local(work.description, work.descriptionEn))}</p>` : ""}${isSmartphoneGroup ? "" : `${aiDeclaration}${instagram}`}${selectable ? `<button class="survey-select-button" type="button" aria-pressed="false">${text("この展示を選ぶ", "Select this display")}</button><div class="work-comment-panel" hidden><label>${text("この展示への感想（任意）", "Comment on this display (optional)")}<textarea class="work-comment" maxlength="1000" rows="4"></textarea></label></div>` : ""}</div></article>`;
 }
 
 function setupLightbox() {
@@ -119,18 +121,18 @@ async function renderSurvey(data, client) {
     content.querySelector("#selection-count").textContent = selected.size;
     content.querySelector("#submit-survey").disabled = selected.size < 1;
     cards.forEach((card) => {
-      const active = selected.has(card.dataset.workId), button = card.querySelector(".survey-select-button");
+      const active = selected.has(card.dataset.selectionId), button = card.querySelector(".survey-select-button");
       card.classList.toggle("is-selected", active); button.setAttribute("aria-pressed", active); button.textContent = active ? text("選択を取り消す", "Remove selection") : text("この作品を選ぶ", "Select this work"); button.disabled = !active && selected.size >= 3; card.querySelector(".work-comment-panel").hidden = !active;
     });
   };
-  cards.forEach((card) => card.querySelector(".survey-select-button").onclick = () => { selected.has(card.dataset.workId) ? selected.delete(card.dataset.workId) : selected.add(card.dataset.workId); update(); });
+  cards.forEach((card) => card.querySelector(".survey-select-button").onclick = () => { selected.has(card.dataset.selectionId) ? selected.delete(card.dataset.selectionId) : selected.add(card.dataset.selectionId); update(); });
   content.querySelector("#dynamic-survey").onsubmit = async (event) => {
     event.preventDefault();
     if (!confirm(text(`${selected.size}作品を選択しています。この内容で送信しますか？`, `You selected ${selected.size} works. Submit this response?`))) return;
     const button = content.querySelector("#submit-survey"); button.disabled = true;
     let token = localStorage.getItem(`photo-survey:${key}:token`);
     if (!token) { token = crypto.randomUUID() + crypto.randomUUID(); localStorage.setItem(`photo-survey:${key}:token`, token); }
-    const selections = cards.filter((card) => selected.has(card.dataset.workId)).map((card) => ({ work_id: card.dataset.workId, comment: card.querySelector(".work-comment").value.trim() }));
+    const selections = cards.filter((card) => selected.has(card.dataset.selectionId)).map((card) => ({ display_item_id: card.dataset.selectionId, comment: card.querySelector(".work-comment").value.trim() }));
     const { error: submitError } = await client.rpc("submit_exhibition_survey", { p_exhibition_key: key, p_respondent_token: token, p_language: language, p_overall_comment: content.querySelector("#overall-comment").value.trim(), p_selections: selections });
     if (submitError) { content.querySelector("#survey-message").textContent = submitError.code === "23505" ? text("この端末からの回答はすでに受け付けています。", "A response from this device has already been received.") : text("回答を送信できませんでした。", "The response could not be submitted."); button.disabled = false; return; }
     content.innerHTML = `<section class="survey-complete"><h2>${text("ご協力ありがとうございました", "Thank you for your response")}</h2><p>${text("回答を受け付けました。", "Your response has been received.")}</p><a class="button" href="${esc(queryUrl(`${root.dataset.baseUrl}works/`))}">${text("作品一覧を見る", "View the gallery")}</a></section>`;
