@@ -48,6 +48,7 @@ async function loadState() {
     return;
   }
 
+  const workflowV2 = entry.dataset.workflowV2 === "true";
   const supabaseUrl = entry.dataset.supabaseUrl;
   const supabaseKey = entry.dataset.supabaseKey;
   const exhibitionKey = entry.dataset.exhibitionKey;
@@ -61,13 +62,25 @@ async function loadState() {
     const supabase = createClient(supabaseUrl, supabaseKey, {
       auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
     });
-    const { data, error } = await supabase.rpc("get_exhibition_public_state", {
-      p_exhibition_key: exhibitionKey,
-    });
+    const { data, error } = await supabase.rpc(
+      workflowV2 ? "get_public_exhibition" : "get_exhibition_public_state",
+      { p_exhibition_key: exhibitionKey },
+    );
     if (error) throw error;
 
     const publicState = Array.isArray(data) ? data[0] : data;
-    showPanel(publicState?.state || "unavailable", publicState?.opens_at);
+    if (workflowV2) {
+      const state = publicState?.siteStatus === "ended"
+        ? "closed"
+        : publicState?.publicationAvailable && publicState?.works?.length
+          ? "open"
+          : publicState?.siteStatus === "published"
+            ? "upcoming"
+            : "unavailable";
+      showPanel(state);
+    } else {
+      showPanel(publicState?.state || "unavailable", publicState?.opens_at);
+    }
   } catch (error) {
     console.error("Failed to load exhibition state.", error);
     showPanel("unavailable");

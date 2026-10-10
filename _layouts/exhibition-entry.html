@@ -6,10 +6,11 @@ layout: default
   class="exhibition-entry"
   data-language-root
   data-exhibition-key="{{ page.exhibition_key | escape }}"
-  data-supabase-url="{{ site.data.survey.supabase_url | escape }}"
-  data-supabase-key="{{ site.data.survey.supabase_publishable_key | escape }}"
+  data-supabase-url="{% if page.workflow_v2 %}{{ site.data.portal.supabase_url | escape }}{% else %}{{ site.data.survey.supabase_url | escape }}{% endif %}"
+  data-supabase-key="{% if page.workflow_v2 %}{{ site.data.portal.supabase_publishable_key | escape }}{% else %}{{ site.data.survey.supabase_publishable_key | escape }}{% endif %}"
   data-language="{{ page.lang | default: 'ja' }}"
   data-auto-language="{{ page.auto_language | default: false }}"
+  data-workflow-v2="{{ page.workflow_v2 | default: false }}"
   data-english-url="{{ page.en_url | default: '/2026/summer/en/' | relative_url }}"
 >
   <nav class="language-switch" aria-label="{% if page.lang == 'en' %}Language{% else %}言語{% endif %}">
@@ -34,8 +35,8 @@ layout: default
   </div>
 
   <section id="entry-upcoming" class="entry-panel" hidden>
-    <h2>{% if page.lang == "en" %}Coming soon{% else %}公開前です{% endif %}</h2>
-    <p>{% if page.lang == "en" %}The gallery and survey will be available after the exhibition opens.{% else %}作品一覧とアンケートは、写真展の開始後にご利用いただけます。{% endif %}</p>
+    <h2>{% if page.workflow_v2 %}{% if page.lang == "en" %}Gallery coming soon{% else %}作品を準備しています{% endif %}{% else %}{% if page.lang == "en" %}Coming soon{% else %}公開前です{% endif %}{% endif %}</h2>
+    <p>{% if page.workflow_v2 %}{% if page.lang == "en" %}The gallery and survey will be available after the works are published.{% else %}作品一覧とアンケートは、作品公開後にご利用いただけます。{% endif %}{% else %}{% if page.lang == "en" %}The gallery and survey will be available after the exhibition opens.{% else %}作品一覧とアンケートは、写真展の開始後にご利用いただけます。{% endif %}{% endif %}</p>
     <p id="entry-opens-at"></p>
   </section>
 
@@ -75,6 +76,6 @@ layout: default
   {% endif %}
 </section>
 {% unless page.archived %}
-<script type="module" src="{{ '/js/exhibition-entry.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
+<script type="module" src="{{ '/js/exhibition-entry.js' | relative_url }}?v={{ page.asset_version | default: site.data.survey.asset_version | escape }}"></script>
 {% endunless %}
 <script src="{{ '/js/exhibition-language.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
