@@ -5,10 +5,12 @@
     title: "2025夏写真展"
     url: "/2025/summer/"
     published: true
+    status: "ended"
   gakusai:
     title: "2025学祭写真展"
     url: "/2025/gakusai/"
     published: true # 仮公開
+    status: "ended"
   winter:
     title: "2025冬写真展"
     url: "/2025/winter/"
