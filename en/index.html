@@ -5,11 +5,25 @@ lang: "en"
 auto_language: true
 ja_url: "/index.html"
 en_url: "/en/index.html"
+asset_version: "20261011-1"
 ---
+
+<section
+  data-language-root
+  data-language="en"
+  data-auto-language="true"
+  data-japanese-url="{{ '/index.html' | relative_url }}"
+  data-english-url="{{ '/en/index.html' | relative_url }}"
+>
+<nav class="language-switch" aria-label="Language">
+  <a data-language="ja" href="{{ '/index.html' | relative_url }}?lang=ja">日本語</a>
+  <span aria-hidden="true">/</span>
+  <a data-language="en" href="{{ '/en/index.html' | relative_url }}?lang=en">English</a>
+</nav>
 
 <h2>Welcome to the Photo Exhibition Site</h2>
 <p>
-    This site allows you to view and vote on the works of the 'Hosei Univ. Koganei Photo Club' photo exhitbitions (Summer and University Festival).
+  This site provides information about exhibitions held by the Hosei Koganei Photo Club. During an exhibition, you can browse the gallery and take part in the visitor survey.
 </p>
 {% assign latest_exhibition = nil %}
 {% assign latest_year = nil %}
@@ -47,9 +61,11 @@ Example: 2025/04~2026/03 → 2025
 {% endif %}
 
 {% if latest_exhibition %}
+  {% assign latest_title = latest_exhibition.title_en | default: latest_exhibition.title %}
+  {% assign latest_url = latest_exhibition.url_en | default: latest_exhibition.url %}
   <p>
     <strong>Latest:</strong>
-    <a href="{{ latest_exhibition.url | relative_url }}">{{ latest_exhibition.title }} is here</a>
+    <a href="{{ latest_url | relative_url }}">View {{ latest_title }}</a>
   </p>
 {% else %}
   <p><strong>Latest:</strong> There are currently no photo exhibitions open to the public.</p>
@@ -63,11 +79,12 @@ Example: 2025/04~2026/03 → 2025
     </div>
   </h2>
   <div class="c-section__container">
+    <p>News articles are currently available in Japanese only.</p>
     <ul>
         {% for post in site.posts limit:5 %}
         <li>
-            {{ post.data | date: "%Y/%m/%d" }}
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {{ post.date | date: "%Y/%m/%d" }}
+            <a href="{{ post.url | relative_url }}" lang="ja">{{ post.title }}</a>
         </li>
         {% endfor %}
     </ul>
@@ -82,15 +99,20 @@ Example: 2025/04~2026/03 → 2025
   <div class="year-block">
     {% for season in year[1] %}
       {% assign data = season[1] %}
+      {% assign exhibition_title = data.title_en | default: data.title %}
+      {% assign exhibition_url = data.url_en | default: data.url %}
       <div class="event-link">
         {% if data.status == "ended" %}
-          <a href="{{ data.url | relative_url }}" class="button">{{ data.title }} (Ended) </a>
+          <a href="{{ exhibition_url | relative_url }}" class="button">{{ exhibition_title }} (Ended)</a>
         {% elsif data.published %}
-          <a href="{{ data.url | relative_url }}" class="button">{{ data.title }}</a>
+          <a href="{{ exhibition_url | relative_url }}" class="button">{{ exhibition_title }}</a>
         {% else %}
-          <span class="button disabled">{{ data.title }} (Not Published)</span>
+          <span class="button disabled">{{ exhibition_title }} (Coming Soon)</span>
         {% endif %}
       </div>
     {% endfor %}
   </div>
 {% endfor %}
+</section>
+
+<script src="{{ '/js/exhibition-language.js' | relative_url }}?v={{ page.asset_version | escape }}"></script>

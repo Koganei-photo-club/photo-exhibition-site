@@ -3,16 +3,19 @@
 2025:
   summer:
     title: "2025夏写真展"
+    title_en: "2025 Summer Exhibition"
     url: "/2025/summer/"
     published: true
     status: "ended"
   gakusai:
     title: "2025学祭写真展"
+    title_en: "2025 Festival Exhibition"
     url: "/2025/gakusai/"
     published: true # 仮公開
     status: "ended"
   winter:
     title: "2025冬写真展"
+    title_en: "2025 Winter Exhibition"
     url: "/2025/winter/"
     published: false
 
@@ -21,12 +24,14 @@
     title: "2026夏写真展"
     title_en: "2026 Summer Exhibition"
     url: "/2026/summer/"
+    url_en: "/2026/summer/en/"
     published: false
     status: "ended"
   gakusai:
     title: "2026学祭写真展"
     title_en: "2026 Festival Exhibition"
     url: "/2026/gakusai/"
+    url_en: "/2026/gakusai/en/"
     published: true
   winter:
     title: "2026冬写真展"

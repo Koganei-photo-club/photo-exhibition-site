@@ -5,7 +5,7 @@
   const currentLanguage = root.dataset.language === "en" ? "en" : "ja";
   const params = new URLSearchParams(window.location.search);
   const requestedLanguage = params.get("lang");
-  const storageKey = "photo-exhibition:2026-summer:language";
+  const storageKey = "photo-exhibition:language";
 
   if (requestedLanguage === "ja" || requestedLanguage === "en") {
     localStorage.setItem(storageKey, requestedLanguage);
@@ -17,11 +17,15 @@
     || savedLanguage
     || (deviceLanguage.startsWith("ja") ? "ja" : "en");
 
-  if (root.dataset.autoLanguage === "true" && preferredLanguage === "en") {
-    const destination = new URL(root.dataset.englishUrl, window.location.origin);
+  if (root.dataset.autoLanguage === "true" && preferredLanguage !== currentLanguage) {
+    const destinationPath = preferredLanguage === "en"
+      ? root.dataset.englishUrl
+      : root.dataset.japaneseUrl;
+    if (!destinationPath) return;
+    const destination = new URL(destinationPath, window.location.origin);
     params.delete("lang");
     params.forEach((value, key) => destination.searchParams.set(key, value));
-    destination.searchParams.set("lang", "en");
+    destination.searchParams.set("lang", preferredLanguage);
     window.location.replace(destination);
     return;
   }

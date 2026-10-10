@@ -5,7 +5,21 @@ lang: "ja"
 auto_language: true
 ja_url: "/index.html"
 en_url: "/en/index.html"
+asset_version: "20261011-1"
 ---
+
+<section
+  data-language-root
+  data-language="ja"
+  data-auto-language="true"
+  data-japanese-url="{{ '/index.html' | relative_url }}"
+  data-english-url="{{ '/en/index.html' | relative_url }}"
+>
+<nav class="language-switch" aria-label="言語">
+  <a data-language="ja" href="{{ '/index.html' | relative_url }}?lang=ja">日本語</a>
+  <span aria-hidden="true">/</span>
+  <a data-language="en" href="{{ '/en/index.html' | relative_url }}?lang=en">English</a>
+</nav>
 
 <h2>ようこそ</h2>
 <p>
@@ -96,3 +110,6 @@ en_url: "/en/index.html"
     {% endfor %}
   </div>
 {% endfor %}
+</section>
+
+<script src="{{ '/js/exhibition-language.js' | relative_url }}?v={{ page.asset_version | escape }}"></script>

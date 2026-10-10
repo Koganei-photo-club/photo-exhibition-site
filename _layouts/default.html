@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
-  <meta name="description" content="法政大学 小金井写真部の公式写真展サイト。">
-  <meta name="keywords" content="法政大学, 小金井, 写真部, 写真展, 学祭, 夏, 冬">
+  <meta name="description" content="{% if page.lang == 'en' %}The official photo exhibition site of the Hosei Koganei Photo Club.{% else %}法政大学 小金井写真部の公式写真展サイト。{% endif %}">
+  <meta name="keywords" content="{% if page.lang == 'en' %}Hosei University, Koganei, photography club, photo exhibition{% else %}法政大学, 小金井, 写真部, 写真展, 学祭, 夏, 冬{% endif %}">
   {% if page.noindex %}<meta name="robots" content="noindex, nofollow, noarchive">{% endif %}
   <meta name="google-site-verification" content="WHZ2rUQexij4kTH4cHRvs5pDwTP-0kCc_QZaRWW92ME" />
   <link rel="stylesheet" href="{{ "/css/style.css" | relative_url }}">
@@ -16,8 +16,8 @@
   <link rel="icon" href="{{ "/images/favicon.png" | relative_url }}" type="image/png">
 
   <!-- OGP -->
-  <meta property="og:title" content="法政大学 小金井写真部 - 写真展">
-  <meta property="og:description" content="2025年度からの夏・学祭・冬の写真展情報、作品一覧、投票結果を掲載。">
+  <meta property="og:title" content="{% if page.lang == 'en' %}Hosei Koganei Photo Club - Photo Exhibitions{% else %}法政大学 小金井写真部 - 写真展{% endif %}">
+  <meta property="og:description" content="{% if page.lang == 'en' %}Information and galleries from exhibitions held by the Hosei Koganei Photo Club.{% else %}2025年度からの夏・学祭・冬の写真展情報、作品一覧、投票結果を掲載。{% endif %}">
   <meta property="og:image" content="{{ "/images/club-icon.JPG" | relative_url }}">
   <meta property="og:url" content="{{ "/" | relative_url }}">
   <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
 <div id="header-wrapper">
   <header id="main-header">
     <div class="header-content">
-      <a href="{{ "/" | relative_url }}"><img src="{{ "/images/club-icon.JPG" | relative_url }}" alt="写真部アイコン" class="logo">
+      <a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}"><img src="{{ "/images/club-icon.JPG" | relative_url }}" alt="{% if page.lang == 'en' %}Photo club icon{% else %}写真部アイコン{% endif %}" class="logo">
       <div class="site-title">
         <h1>{% if page.lang == "en" %}Hosei Koganei Photo Club{% else %}法政大学 小金井写真部{% endif %}</h1>
         <p>{% if page.lang == "en" %}Photo Exhibition{% else %}写真展{% endif %}</p>
@@ -51,8 +51,13 @@
       {% if exhibitions %}
         {% for season in exhibitions %}
           {% assign data = season[1] %}
+          {% if page.lang == "en" and data.url_en %}
+            {% assign navigation_url = data.url_en %}
+          {% else %}
+            {% assign navigation_url = data.url %}
+          {% endif %}
           {% if data.published or data.status == "ended" %}
-            <li><a href="{{ data.url | relative_url }}">{% if page.lang == "en" and data.title_en %}{{ data.title_en }}{% else %}{{ data.title }}{% endif %}</a></li>
+            <li><a href="{{ navigation_url | relative_url }}">{% if page.lang == "en" and data.title_en %}{{ data.title_en }}{% else %}{{ data.title }}{% endif %}</a></li>
           {% else %}
             <li><a href="#" class="disabled">{% if page.lang == "en" and data.title_en %}{{ data.title_en }}{% else %}{{ data.title }}{% endif %}</a></li>
           {% endif %}
