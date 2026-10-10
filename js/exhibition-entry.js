@@ -24,6 +24,17 @@ const panels = {
 
 const previewState = new URLSearchParams(window.location.search).get("preview");
 
+function showDmImage(path, supabaseUrl) {
+  const placeholder = entry.querySelector("#entry-dm-placeholder");
+  if (!placeholder || !path) return;
+
+  const image = new Image();
+  image.alt = language === "en" ? "Exhibition flyer" : "写真展のDM";
+  image.addEventListener("load", () => placeholder.replaceWith(image), { once: true });
+  image.addEventListener("error", () => image.remove(), { once: true });
+  image.src = `${supabaseUrl}/storage/v1/object/public/exhibition-public/${path.split("/").map(encodeURIComponent).join("/")}`;
+}
+
 function showPanel(state, opensAt = null, isPreview = false) {
   Object.values(panels).forEach((panel) => { panel.hidden = true; });
   const selected = panels[state] || panels.unavailable;
@@ -70,6 +81,7 @@ async function loadState() {
 
     const publicState = Array.isArray(data) ? data[0] : data;
     if (workflowV2) {
+      showDmImage(publicState?.dmImagePath, supabaseUrl);
       const state = publicState?.siteStatus === "ended"
         ? "closed"
         : publicState?.publicationAvailable && publicState?.works?.length
