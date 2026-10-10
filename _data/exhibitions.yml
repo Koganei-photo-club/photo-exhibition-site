@@ -25,7 +25,7 @@
     title: "2026学祭写真展"
     title_en: "2026 Festival Exhibition"
     url: "/2026/gakusai/"
-    published: false
+    published: true
   winter:
     title: "2026冬写真展"
     title_en: "2026 Winter Exhibition"
