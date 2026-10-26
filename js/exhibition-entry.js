@@ -24,6 +24,20 @@ const panels = {
 
 const previewState = new URLSearchParams(window.location.search).get("preview");
 
+function getScheduledState() {
+  const opensAt = entry.dataset.opensAt ? new Date(entry.dataset.opensAt) : null;
+  const closesAt = entry.dataset.closesAt ? new Date(entry.dataset.closesAt) : null;
+  const now = new Date();
+
+  if (opensAt && !Number.isNaN(opensAt.getTime()) && now < opensAt) {
+    return { state: "upcoming", opensAt };
+  }
+  if (closesAt && !Number.isNaN(closesAt.getTime()) && now > closesAt) {
+    return { state: "closed", opensAt: null };
+  }
+  return { state: "open", opensAt: null };
+}
+
 function showDmImage(path, supabaseUrl) {
   const placeholder = entry.querySelector("#entry-dm-placeholder");
   if (!placeholder || !path) return;
@@ -56,6 +70,12 @@ function showPanel(state, opensAt = null, isPreview = false) {
 async function loadState() {
   if (previewState === "open") {
     showPanel("open", null, true);
+    return;
+  }
+
+  if (entry.dataset.stateProvider === "static_schedule") {
+    const scheduled = getScheduledState();
+    showPanel(scheduled.state, scheduled.opensAt);
     return;
   }
 

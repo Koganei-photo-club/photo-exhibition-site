@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+{% assign exhibition_backends = site.data.survey_backends.exhibitions %}
+{% assign backend = exhibition_backends[page.exhibition_key] %}
 <section
   id="exhibition-entry"
   class="exhibition-entry"
@@ -11,6 +13,11 @@ layout: default
   data-language="{{ page.lang | default: 'ja' }}"
   data-auto-language="{{ page.auto_language | default: false }}"
   data-workflow-v2="{{ page.workflow_v2 | default: false }}"
+  data-state-provider="{{ backend.state_provider | default: 'supabase' | escape }}"
+  data-gas-url="{{ backend.gas_web_app_url | escape }}"
+  data-opens-at="{{ backend.opens_at | escape }}"
+  data-closes-at="{{ backend.closes_at | escape }}"
+  data-entry-always-visible="{{ backend.entry_always_visible | default: false }}"
   data-english-url="{{ page.en_url | default: '/2026/summer/en/' | relative_url }}"
 >
   <nav class="language-switch" aria-label="{% if page.lang == 'en' %}Language{% else %}言語{% endif %}">

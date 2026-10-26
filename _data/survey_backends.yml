@@ -1,0 +1,14 @@
+# 写真展ごとの公開状態・回答保存・画像配信の切り替え設定です。
+# GAS のウェブアプリURLは公開ページから呼び出すための公開URLです。
+# パスワード、APIシークレット、スプレッドシートIDは記載しないでください。
+
+exhibitions:
+  2026-gakusai:
+    state_provider: static_schedule
+    response_provider: gas
+    image_provider: github
+    entry_always_visible: true
+    opens_at: "2026-11-01T05:00:00+09:00"
+    closes_at: "2026-11-07T23:59:00+09:00"
+    timezone: "Asia/Tokyo"
+    gas_web_app_url: "https://script.google.com/macros/s/AKfycbzO0N7wgGIpSnuLySBXganHLGmYl_-5jPg2Y8LTyvEivDTdQ07-oQgbt-N9EfJ_Ff4-/exec"
