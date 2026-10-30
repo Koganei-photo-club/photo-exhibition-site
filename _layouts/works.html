@@ -1,11 +1,19 @@
 ---
 layout: default
 ---
+{% assign exhibition_backends = site.data.survey_backends.exhibitions %}
+{% assign backend = exhibition_backends[page.exhibition_key] %}
 
 <section
+  id="scheduled-works"
   class="works-page"
   data-language-root
   data-language="{{ page.lang | default: 'ja' }}"
+  data-state-provider="{{ backend.state_provider | default: '' | escape }}"
+  data-opens-at="{{ backend.opens_at | escape }}"
+  data-closes-at="{{ backend.closes_at | escape }}"
+  data-entry-url="{{ page.entry_url | default: '/' | relative_url }}"
+  data-state-loading="{% if backend %}true{% else %}false{% endif %}"
 >
   <nav class="language-switch" aria-label="{% if page.lang == 'en' %}Language{% else %}言語{% endif %}">
     <a data-language="ja" href="{{ page.ja_url | default: '/2026/summer/works/' | relative_url }}?lang=ja">日本語</a>
@@ -15,7 +23,9 @@ layout: default
 
   {{ content }}
 
-  {% assign works = site.data.works[page.works_data] %}
+  <div id="works-schedule-status" class="entry-status" role="status" aria-live="polite"></div>
+  <div id="works-scheduled-content">
+  {% assign works = site.data.works[page.works_data] | where: "active", true %}
   {% if works and works != empty %}
     {% assign works = works | sort: "no" %}
     <div class="work-gallery">
@@ -65,5 +75,7 @@ layout: default
   {% else %}
     <p class="works-empty-message">{% if page.lang == "en" %}The gallery is being prepared. Please check back when the exhibition opens.{% else %}作品情報を準備しています。公開開始までお待ちください。{% endif %}</p>
   {% endif %}
+  </div>
 </section>
 <script src="{{ '/js/exhibition-language.js' | relative_url }}?v={{ site.data.survey.asset_version | escape }}"></script>
+{% if backend %}<script src="{{ '/js/works-schedule.js' | relative_url }}?v=20261031-1"></script>{% endif %}

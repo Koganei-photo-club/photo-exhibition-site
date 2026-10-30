@@ -480,6 +480,10 @@ footer .disclaimer {
   z-index: 10;
 }
 
+.works-page[data-state-loading="true"] #works-scheduled-content {
+  display: none;
+}
+
 /* 透かし */
 .photo-wrapper::after {
   content: "© 法政大学 小金井写真部";
