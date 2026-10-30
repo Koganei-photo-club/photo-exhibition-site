@@ -158,11 +158,9 @@ form.addEventListener("submit", async (event) => {
     submission_id: submissionId,
     language,
     overall_comment: overallComment.value.trim(),
-    selections: selectedAnswers().map(({ work_id, work_no, title, comment }) => ({
+    selections: selectedAnswers().map(({ work_id, comment }) => ({
       work_id,
-      display_no: work_no,
-      work_title: title,
-      work_comment: comment,
+      comment,
     })),
   };
   try {
