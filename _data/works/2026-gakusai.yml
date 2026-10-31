@@ -173,32 +173,32 @@
   title: 棚下 初秋
   title_en: 
   author: すが
-  image_public: true
-  active: true
+  image_public: false #出展作品が間に合わなかったため
+  active: false #出展作品が間に合わなかったため
   instagram:
   camera: Nikon D780
   lens: AF-S NIKKOR 70-200mm F2.8 FL ED VR
   description: 群馬県のこのエリアでは、大きく蛇行した利根川が箱庭のような風景を作る。里山の四季の風景も美しく好きな場所である。しかし日頃の行いが足りなかったためか、背景の榛名山は曇ってしまった。無念。
   description_en:
-  images:
-    thumb: "/2026/gakusai/public-images/works/3fecb163308cccbf6ede2f6f8b2795d3bf419278f6f539e1661f050d7bee9ca3_wm.jpg"
-    full: "/2026/gakusai/public-images/works/3fecb163308cccbf6ede2f6f8b2795d3bf419278f6f539e1661f050d7bee9ca3_wm.jpg"
+  # images:
+  #   thumb: "/2026/gakusai/public-images/works/3fecb163308cccbf6ede2f6f8b2795d3bf419278f6f539e1661f050d7bee9ca3_wm.jpg"
+  #   full: "/2026/gakusai/public-images/works/3fecb163308cccbf6ede2f6f8b2795d3bf419278f6f539e1661f050d7bee9ca3_wm.jpg"
 
 - work_id: a4cae21b015cc6deb7f893dfda5faec4ea9d04bba3ecf4f5b476fe19bc8e4b23
   "no": 9
   title: 棚下 晩秋
   title_en: 
   author: すが
-  image_public: true
-  active: true
+  image_public: false #出展作品が間に合わなかったため
+  active: false #出展作品が間に合わなかったため
   instagram:
   camera: Nikon D780
   lens: AF-S NIKKOR 70-200mm F2.8 FL ED VR
   description: こちらは秋も終わりに近いの日の棚下。SLは興味の対象ではないのだが、この時ばかりは、ちぎれては消えていく煙を秋の寂しさと重ねて見送った。
   description_en:
-  images:
-    thumb: "/2026/gakusai/public-images/works/a4cae21b015cc6deb7f893dfda5faec4ea9d04bba3ecf4f5b476fe19bc8e4b23_wm.jpg"
-    full: "/2026/gakusai/public-images/works/a4cae21b015cc6deb7f893dfda5faec4ea9d04bba3ecf4f5b476fe19bc8e4b23_wm.jpg"
+  # images:
+  #   thumb: "/2026/gakusai/public-images/works/a4cae21b015cc6deb7f893dfda5faec4ea9d04bba3ecf4f5b476fe19bc8e4b23_wm.jpg"
+  #   full: "/2026/gakusai/public-images/works/a4cae21b015cc6deb7f893dfda5faec4ea9d04bba3ecf4f5b476fe19bc8e4b23_wm.jpg"
 
 - work_id: 98de35bca5c46cc2beed49ad2cd7a457269b9aa5bb93537084618e8bcd166027
   "no": 10
