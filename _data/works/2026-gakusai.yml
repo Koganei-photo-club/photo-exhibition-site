@@ -56,7 +56,7 @@
 - work_id: 49c36adb2a328f078292ea1f0e00df0ebf729acfbfb98e33aabcceadc08b9681
   "no": 1
   title: 浅草寺の一角
-  title_en: 
+  title_en: A Corner of Senso-ji Temple
   author: しあん
   image_public: true
   active: true
@@ -72,7 +72,7 @@
 - work_id: a0a3bcddc19404bea16aee8a54a9506cdab14edf890a2f36c8fdb138b87f7e4a
   "no": 2
   title: 城
-  title_en: 
+  title_en: Castle
   author: 小松
   image_public: true
   active: true
@@ -88,7 +88,7 @@
 - work_id: 7408fb6f4c73ec158340c6e340be9922b115dc890d5830db9c413b02ecb340d8
   "no": 3
   title: トビ
-  title_en: 
+  title_en: Black Kite
   author: しあん
   image_public: true
   active: true
@@ -104,7 +104,7 @@
 - work_id: a0cf2ad108bd6f9746a39cf191ffe6635e49b6f506aa31994624769b3a3397bb
   "no": 4
   title: 山登り
-  title_en: 
+  title_en: Winding Up the Mountain
   author: 疋田悠真
   image_public: true
   active: true
@@ -112,7 +112,7 @@
   camera: Canon EOS R6 Mark III
   lens: SIGMA 24-70mm F2.8 DG OS HSM | Art 017
   description: 都会で使い古されたバスの第二の人生は、田舎の山登りだった。
-  description_en:
+  description_en: After serving its time in the big city, this retired bus began its second chapter—climbing the quiet mountain roads of the countryside.
   images:
     thumb: "/2026/gakusai/public-images/works/a0cf2ad108bd6f9746a39cf191ffe6635e49b6f506aa31994624769b3a3397bb_wm.jpg"
     full: "/2026/gakusai/public-images/works/a0cf2ad108bd6f9746a39cf191ffe6635e49b6f506aa31994624769b3a3397bb_wm.jpg"
@@ -120,7 +120,7 @@
 - work_id: 8497878e72ce283f55396c288c6076cc767e924cec277749cff10d629a46242f
   "no": 5
   title: 余韻
-  title_en: 
+  title_en: Afterglow
   author: nkr
   image_public: true
   active: true
@@ -136,7 +136,7 @@
 - work_id: cdee64cb734a727702aa97e6a0fbd0851b3f2bab05793f4eb169c30942583178
   "no": 6
   title: 日々、織々
-  title_en: 
+  title_en: Everyday Tapestry
   author: Lisa Maruyama
   image_public: true
   active: true
@@ -147,7 +147,9 @@
     Alexandros
     何気ない日常の心地よさを感じるような大好きな曲です。
     ぜひ聴いてみてください。
-  description_en:
+  description_en: |
+    Inspired by "[Alexandros]"—a song I love for how it captures the quiet comfort of everyday life.
+    I hope you give it a listen.
   images:
     thumb: "/2026/gakusai/public-images/works/1833a04c-4ace-40d6-8608-5313511549a6_wm.jpg"
     full: "/2026/gakusai/public-images/works/1833a04c-4ace-40d6-8608-5313511549a6_wm.jpg"
@@ -155,7 +157,7 @@
 - work_id: c549ec576a052df536a886cb1e573d359d689c84ab374ae9c2c8e914f4dfd688
   "no": 7
   title: 夕色
-  title_en: 
+  title_en: Sunset Hues
   author: 森田晏子
   image_public: true
   active: true
@@ -203,7 +205,7 @@
 - work_id: 98de35bca5c46cc2beed49ad2cd7a457269b9aa5bb93537084618e8bcd166027
   "no": 10
   title: 乾いた空気が流れる
-  title_en: 
+  title_en: Drifting Dry Air
   author: 疋田悠真
   image_public: true
   active: true
@@ -211,7 +213,7 @@
   camera: Canon EOS R6 Mark II
   lens: SIGMA 70-200mm F2.8 DG OS HSM | Sports 018
   description: 夏には緑に色づく並木道も冬になると全て枯れ木に。
-  description_en:
+  description_en: The tree-lined avenue, vibrant and green in summer, stands bare once winter arrives.
   images:
     thumb: "/2026/gakusai/public-images/works/98de35bca5c46cc2beed49ad2cd7a457269b9aa5bb93537084618e8bcd166027_wm.jpg"
     full: "/2026/gakusai/public-images/works/98de35bca5c46cc2beed49ad2cd7a457269b9aa5bb93537084618e8bcd166027_wm.jpg"
@@ -219,7 +221,7 @@
 - work_id: e43c2edc32fbff74ad53e197d280a46efd58a5fb6d8b30d81c486d7da173ed8a
   "no": 11
   title: 雲の帳
-  title_en: 
+  title_en: Veil of Clouds
   author: 多田光希
   image_public: true
   active: true
@@ -227,7 +229,7 @@
   camera: SONY αZV-E10
   lens:
   description: 谷川岳の稜線を、白い雲が帳のように覆う。
-  description_en:
+  description_en: A white blanket of clouds drapes over the ridge of Mount Tanigawa like a veil.
   images:
     thumb: "/2026/gakusai/public-images/works/e43c2edc32fbff74ad53e197d280a46efd58a5fb6d8b30d81c486d7da173ed8a_wm.jpg"
     full: "/2026/gakusai/public-images/works/e43c2edc32fbff74ad53e197d280a46efd58a5fb6d8b30d81c486d7da173ed8a_wm.jpg"
@@ -235,7 +237,7 @@
 - work_id: 6059c32d75b74768210af11f8afff6d259fc2172fc87c22ac7686fe025ccd3f4
   "no": 12
   title: ふたつの山
-  title_en: 
+  title_en: Two Mountains
   author: Betty
   image_public: true
   active: true
@@ -246,7 +248,10 @@
     グランドティトン国立公園にて撮影
     空にそびえる山、水面に浮かぶ山
     同じ姿をしているのに、どこか違う世界のように見えた
-  description_en:
+  description_en: |
+    Taken at Grand Teton National Park.
+    One mountain towers into the sky, while the other floats on the water's surface.
+    Though identical in form, they felt as if they belonged to two entirely different worlds.
   images:
     thumb: "/2026/gakusai/public-images/works/755a2034-c55e-476f-b903-5615f548f9a7_wm.jpg"
     full: "/2026/gakusai/public-images/works/755a2034-c55e-476f-b903-5615f548f9a7_wm.jpg"
@@ -254,7 +259,7 @@
 - work_id: 869ddd4b7b863fca29a03a13c8723ddd5c356adf542a14b508e02317dc6f1e97
   "no": 13
   title: 時の積層
-  title_en: 
+  title_en: Layers of Time
   author: Betty
   image_public: true
   active: true
@@ -265,7 +270,10 @@
     イエローストーン国立公園にて撮影
     流れる水が少しずつ形づくる大地
     幾重にも重なる地形に、途方もない時間の流れを感じる
-  description_en:
+  description_en: |
+    Taken at Yellowstone National Park.
+    Earth carved away, bit by bit, by flowing water.
+    In these deeply layered rock formations, I could feel the immense stretch of passing time.
   images:
     thumb: "/2026/gakusai/public-images/works/73499fd0-c16c-46c7-84ff-18f80fb04b08_wm.jpg"
     full: "/2026/gakusai/public-images/works/73499fd0-c16c-46c7-84ff-18f80fb04b08_wm.jpg"
@@ -273,7 +281,7 @@
 - work_id: a60b1d356bd8125d1ed128633489ca57bccc026689bf6f2dbe5ae49e472846ff
   "no": 14
   title: 大地の呼吸
-  title_en: 
+  title_en: The Breath of the Earth
   author: Betty
   image_public: true
   active: true
@@ -284,7 +292,10 @@
     イエローストーン国立公園にて撮影
     絶え間なく立ちのぼる蒸気
     静かな景色の中に、地球が生きていることを感じた
-  description_en:
+  description_en: |
+    Taken at Yellowstone National Park.
+    Stream rises without end.
+    In the quiet landscape, I felt that the Earth itself was alive.
   images:
     thumb: "/2026/gakusai/public-images/works/afe39b1d-904f-44fd-a9d7-78abb608cdab_wm.jpg"
     full: "/2026/gakusai/public-images/works/afe39b1d-904f-44fd-a9d7-78abb608cdab_wm.jpg"
@@ -292,7 +303,7 @@
 - work_id: c83685c27578f872208e4feac684ef32d0610df5be75548a63f364ad2abaedd8
   "no": 15
   title: 2026
-  title_en: 
+  title_en: 2026
   author: Fuji Ryu
   image_public: true
   active: true
@@ -308,7 +319,7 @@
 - work_id: 3975b1ff89b730e3990b28dee8e248c972bcbe5d70c274b7dab9b2682f68a4fb
   "no": 16
   title: FRAGMENTS
-  title_en: 
+  title_en: FRAGMENTS
   author: futakoyk
   image_public: true
   active: true
@@ -318,7 +329,9 @@
   description: | 
     見慣れた街並み、行き交う人々、何気ない日常の風景。
     初めての1本に残された5つの断片は、あの日、私がファインダー越しに見つめた世界の記憶である。
-  description_en:
+  description_en: |
+    A familiar streetscape, passing crowds, and scenes of everyday life.
+    The five fragments left on my very first roll of film are memories of the world as I saw it through the viewfinder that day.
   images:
     thumb: "/2026/gakusai/public-images/works/e80a7047-0e14-4656-be2c-ec8a053029ea_wm.jpg"
     full: "/2026/gakusai/public-images/works/e80a7047-0e14-4656-be2c-ec8a053029ea_wm.jpg"
@@ -326,7 +339,7 @@
 - work_id: 8ddf32d159588db56bdd52c8c91ee828dc80c42e98096f7ada76bf96736840a3
   "no": 17
   title: Roll
-  title_en: 
+  title_en: Roll
   author: なかむら　みつき
   image_public: true
   active: true
@@ -336,7 +349,9 @@
   description: |
     社会の歯車を目指して就活を頑張る毎日です。
     人間止まっていることは許されないもので、同じことを繰り返す彼らを羨ましく思ってしまいます。
-  description_en:
+  description_en: |
+    Day after day, I push through the job hunt, striving to become just another cog in society.
+    Human existence demands constant motion, and so I find myself envying hose who repeat the exact same routines without end.
   images:
     thumb: "/2026/gakusai/public-images/works/720f5f15-6226-4253-890a-a7feb29cc9e3_wm.jpg"
     full: "/2026/gakusai/public-images/works/720f5f15-6226-4253-890a-a7feb29cc9e3_wm.jpg"
@@ -344,7 +359,7 @@
 - work_id: 4b9eb72d979bb468173ecf45be2b9a9605aaacb6c8b558985bab35ffc67df07e
   "no": 18
   title: いつまでも
-  title_en: 
+  title_en: Forever and Always
   author: Lisa Maruyama
   image_public: true
   active: true
@@ -360,7 +375,7 @@
 - work_id: 59f618e2a5e4f577e8afa917e1dc12e2e0e8753436de2f78d8493518ff646141
   "no": 19
   title: 光の方へ
-  title_en: 
+  title_en: Toward the Light
   author: 森田晏子
   image_public: true
   active: true
@@ -376,7 +391,7 @@
 - work_id: 3d687ac4fdbf520aea8a10cad24eff9d9679d6d4f3bb1346d7c7cfd3bd36ec50
   "no": 20
   title: 道南にて
-  title_en: 
+  title_en: In Southern Hokkaido
   author: 石井壱宝
   image_public: true
   active: true
@@ -392,7 +407,7 @@
 - work_id: 8bb64165a953ee57dd88f10e8f682149e3e9bc2155bf4a85959aec99114f0cfc
   "no": 21
   title: Ceillist by The Sea
-  title_en: 
+  title_en: Ceillist by The Sea
   author: しあん
   image_public: true
   active: true
@@ -408,7 +423,7 @@
 - work_id: 41d344f6d0189a3143cf17675c13a706fcefcaa8801c2017d83b48fa768003e9
   "no": 22
   title: 夏をつむ
-  title_en: 
+  title_en: Weaving Summer
   author: 奏
   image_public: true
   active: true
@@ -417,7 +432,10 @@
   lens:
   description: |
     夏休み、写真部の先輩と後輩と昭和記念公園へ。大きなひまわりの中に小さな一匹の蜂。蜜を摘みながら、私たちの夏も紡いでくれているように感じました。
-  description_en:
+  description_en: |
+    During summer break, I visited Showa Kinen Park with my senior and junior club members.
+    Amidst the massive sunflowers was a single tiny bee.
+    As it gathered nectar, it felt as though it was weaving together our summer, too.
   images:
     thumb: "/2026/gakusai/public-images/works/3d361fe0-fb21-45b9-962f-3a03e52163d3_wm.jpg"
     full: "/2026/gakusai/public-images/works/3d361fe0-fb21-45b9-962f-3a03e52163d3_wm.jpg"
@@ -425,7 +443,7 @@
 - work_id: 13b27a616324c8d5d4b46d06fa4ae13b77b804d07131320cdd9ee9728d29951d
   "no": 23
   title: 木漏れ日を浴びて
-  title_en: 
+  title_en: Basking in Sunlight Through the Trees
   author: 疋田悠真
   image_public: true
   active: true
@@ -433,7 +451,7 @@
   camera: Canon EOS 6D Mark II
   lens: SIGMA 70-200mm F2.8 DG OS HSM | Sports 018
   description: 人の気配などない、獣の気配がする森の中を駆け抜ける。
-  description_en:
+  description_en: Dashing through a forest empty of human presence, where only the signs of wild beasts linger.
   images:
     thumb: "/2026/gakusai/public-images/works/13b27a616324c8d5d4b46d06fa4ae13b77b804d07131320cdd9ee9728d29951d_wm.jpg"
     full: "/2026/gakusai/public-images/works/13b27a616324c8d5d4b46d06fa4ae13b77b804d07131320cdd9ee9728d29951d_wm.jpg"
@@ -441,7 +459,7 @@
 - work_id: aedcfc649fd89af3f5c61e03700e3723477276573904af5a384c4e7a31eae115
   "no": 24
   title: 早朝の色
-  title_en: 
+  title_en: Colors of Early Dawn
   author: 奏
   image_public: true
   active: true
@@ -449,7 +467,7 @@
   camera: Canon EOS Kiss X8i
   lens:
   description: 朝4時に起きて、高尾山に登りました。山登りが好きな親友は、運動不足の私のために何度も休憩を取ってくれました。水筒のあったかいお茶が美味しかったです。やっと着いた頂上には、朝の光に照らされた秋の色が目覚めていました。
-  description_en:
+  description_en: I woke at 4 a.m. to climb Mount Takao. My best friend, an avid hiker, stopped for frequent breaks to accommodate my out-of-shape pace. The warm tea from our thermos tasted wonderful. When we finally reached the summit, the autumn colors were awakening, illuminated by the morning light.
   images:
     thumb: "/2026/gakusai/public-images/works/f65a0b99-49b7-44ff-a425-d3a2286d370f_wm.jpg"
     full: "/2026/gakusai/public-images/works/f65a0b99-49b7-44ff-a425-d3a2286d370f_wm.jpg"
@@ -457,7 +475,7 @@
 - work_id: 159dbdbe6891d2408df324048df85bbb05e0bee6d62e95973af1bf60c4693cba
   "no": 25
   title: ぐるぐる
-  title_en: 
+  title_en: Whirling
   author: 奏
   image_public: true
   active: true
@@ -465,7 +483,7 @@
   camera: Canon EOS Kiss X8i
   lens:
   description: 夏休み、電電の友達と、井の頭公園で花火をしようと夕暮れを待っていました。座っていたベンチの下、小さな秋の入り口を見つけました。
-  description_en:
+  description_en: During summer break, I met up with my electrical engineering friends at Inokashira Park, waiting for dusk so we could light sparklers together. Under the bench where I sat, I caught a small glimpse of autumn's quiet entrance.
   images:
     thumb: "/2026/gakusai/public-images/works/af4a7c8e-e5f4-4098-9833-077c9f98d9a3_wm.jpg"
     full: "/2026/gakusai/public-images/works/af4a7c8e-e5f4-4098-9833-077c9f98d9a3_wm.jpg"
@@ -473,7 +491,7 @@
 - work_id: 8445fd489c25d70e5070239742ee86a79d8d062bd0b063c937ee141d271b401e
   "no": 26
   title: 川口にて
-  title_en: 
+  title_en: In Kawaguchi
   author: 62
   image_public: true
   active: true
@@ -489,7 +507,7 @@
 - work_id: 1402de3f135df39e2dfa4187946caba819d66fc778f03933af18fdb61fac0af7
   "no": 27
   title: HOVER
-  title_en: 
+  title_en: HOVER
   author: futakoyk
   image_public: true
   active: true
@@ -497,7 +515,7 @@
   camera: PENTAX K-3 Mark II
   lens: HD PENTAX-DFA 150-450mm F4.5-5.6 ED DC AW
   description: 巨大なローターを回転させながら、上空に浮かぶCV-22オスプレイ。その姿は、航空機というよりも、空中に浮かぶ巨大な機械のようだった。ティルトローター機ならではの迫力であった。
-  description_en:
+  description_en: Floating in the sky with its massive rotors spinning, the CV-22 Osprey felt less like an aircraft and more like agiant machine suspended in midair—a raw display of power unique to tiltrotor aircraft.
   images:
     thumb: "/2026/gakusai/public-images/works/4ce5d729-ca02-48db-9065-3cd75589df15_wm.jpg"
     full: "/2026/gakusai/public-images/works/4ce5d729-ca02-48db-9065-3cd75589df15_wm.jpg"
@@ -505,7 +523,7 @@
 - work_id: d736328032873fa6699cf871c137ecf3ae407a4b73238d9af4bd644766eed312
   "no": 28
   title: SHIN-YOKOHAMA
-  title_en: 
+  title_en: SHIN-YOKOHAMA
   author: Fuji Ryu
   image_public: true
   active: true
@@ -521,7 +539,7 @@
 - work_id: 691819af91391061c4dbd6dee1fdffca5732122260334ea2ca9506fc0c2b9ca7
   "no": 29
   title: Lost in Dreams, Wrapped in Mist
-  title_en: 
+  title_en: Lost in Dreams, Wrapped in Mist
   author: 飯田智久
   image_public: true
   active: true
@@ -529,7 +547,7 @@
   camera: SONY α7 RIII
   lens: FE 70-200mm F2.8 GM OSS II
   description: 深夜2時、街は夢の水底へ。
-  description_en:
+  description_en: At 1 a.m., the city sinks into the depths of a dream.
   images:
     thumb: "/2026/gakusai/public-images/works/691819af91391061c4dbd6dee1fdffca5732122260334ea2ca9506fc0c2b9ca7_wm.jpg"
     full: "/2026/gakusai/public-images/works/691819af91391061c4dbd6dee1fdffca5732122260334ea2ca9506fc0c2b9ca7_wm.jpg"
@@ -537,7 +555,7 @@
 - work_id: 24e23985bb7dc3373fbb7ded11289df34d1a5c65650f96e8fceb27b7a6c163de
   "no": 30
   title: 月を横切る翼
-  title_en: 
+  title_en: Wings That Cross the Moon
   author: 石井壱宝
   image_public: true
   active: true
@@ -553,7 +571,7 @@
 - work_id: a169fed9870121052d532b151106a34955e0726079bad6ac44cbd0ae3920653a
   "no": 31
   title: 魔術師
-  title_en: 
+  title_en: The Magician
   author: なかむら　みつき
   image_public: true
   active: true
@@ -561,7 +579,7 @@
   camera: Nikon Z6
   lens: Z NIKKOR 35mm f/1.8 S
   description: ほぼ車でしか行けないのに飲むと運転できなくなるのがつらい。
-  description_en:
+  description_en: It's tough that I can only get there by car, but I can't drive after drinking.
   images:
     thumb: "/2026/gakusai/public-images/works/0a821de7-6e67-48c9-9358-1521aa58a1e4_wm.jpg"
     full: "/2026/gakusai/public-images/works/0a821de7-6e67-48c9-9358-1521aa58a1e4_wm.jpg"
@@ -569,7 +587,7 @@
 - work_id: 2677141a4ed26e51936c8f678f54b591cc1693c9100bd191081f7add6707b9fe
   "no": 32
   title: 夜の坩堝
-  title_en: 
+  title_en: Melting Pot of the Night
   author: 多田光希
   image_public: true
   active: true
@@ -577,7 +595,7 @@
   camera: SONY αZV-E10
   lens:
   description: 色とりどりのネオンがひしめく、ベトナムの夜。
-  description_en:
+  description_en: A Vietnam night, crowded with colorful neon light.
   images:
     thumb: "/2026/gakusai/public-images/works/2677141a4ed26e51936c8f678f54b591cc1693c9100bd191081f7add6707b9fe_wm.jpg"
     full: "/2026/gakusai/public-images/works/2677141a4ed26e51936c8f678f54b591cc1693c9100bd191081f7add6707b9fe_wm.jpg"
@@ -585,7 +603,7 @@
 - work_id: e50c959d4c4e60f3a82e84b9d2fdd13469debba8bda9765663fcf253506576a4
   "no": 33
   title: 朝の木漏れ日
-  title_en: 
+  title_en: Morning Sunlight Through the Trees
   author: Lisa Maruyama
   image_public: true
   active: true
@@ -617,7 +635,7 @@
 - work_id: 4ca45202cbd4135155c9cf3667030458d5c7b98e5d6cd93102d5bb05e5001311
   "no": 35
   title: 清秋逍遥
-  title_en: 
+  title_en: Autumn Wandering in the Crisp Air
   author: 多田光希
   image_public: true
   active: true
@@ -625,7 +643,7 @@
   camera: SONY αZV-E10
   lens:
   description: 澄み渡る青空の下、行き先よりも歩くひとときを楽しみたくなるような秋の景色。
-  description_en:
+  description_en: Under a crystal-clear blue sky, an autumn landscape that makes you want to treasure the stroll itself, rather than the destination.
   images:
     thumb: "/2026/gakusai/public-images/works/4ca45202cbd4135155c9cf3667030458d5c7b98e5d6cd93102d5bb05e5001311_wm.jpg"
     full: "/2026/gakusai/public-images/works/4ca45202cbd4135155c9cf3667030458d5c7b98e5d6cd93102d5bb05e5001311_wm.jpg"
@@ -633,7 +651,7 @@
 - work_id: 48c9afbf1039a003a6b71c781f896bd9a7847e2d0fa8d2b1c2518f2617170f48
   "no": 36
   title: 偶然への照準
-  title_en: 
+  title_en: Aiming at Chance
   author: 飯田智久
   image_public: true
   active: true
@@ -641,7 +659,7 @@
   camera: SONY α7 RIII
   lens: FE 70-200mm F2.8 GM OSS II
   description: 勝負はやってみないとわからない。
-  description_en:
+  description_en: You never know the outcome until you try.
   images:
     thumb: "/2026/gakusai/public-images/works/48c9afbf1039a003a6b71c781f896bd9a7847e2d0fa8d2b1c2518f2617170f48_wm.jpg"
     full: "/2026/gakusai/public-images/works/48c9afbf1039a003a6b71c781f896bd9a7847e2d0fa8d2b1c2518f2617170f48_wm.jpg"
@@ -649,7 +667,7 @@
 - work_id: 191de6564aa100e03b62a9732b6ade742372c5e3840b9dac3bb5e8c8319d57c3
   "no": 37
   title: 白い生地に 影の柄をあわせて
-  title_en: 
+  title_en: Shadow Pattern on White Fur
   author: なかむら　みつき
   image_public: true
   active: true
@@ -659,7 +677,9 @@
   description: |
     毎年いい感じの写真を撮らせてくれるキジ白猫さんです。
     今年はキジ柄と影の柄を合わせる遊びを効かせた装いでおしゃれな一面を見せてくれました。
-  description_en:
+  description_en: |
+    A white and tabby cat that lets me take great photos every year.
+    This year, it showed off a stylish side, playing around by aligning its tabby stripes with the shadows.
   images:
     thumb: "/2026/gakusai/public-images/works/fbb86690-7c43-488f-a877-bd1eccc19f3e_wm.jpg"
     full: "/2026/gakusai/public-images/works/fbb86690-7c43-488f-a877-bd1eccc19f3e_wm.jpg"
@@ -667,7 +687,7 @@
 - work_id: aa2a118ff00d18528d60ad9dcea50a183871a31c40cca571f2a620824f80fccb
   "no": 38
   title: INterSECTion
-  title_en: 
+  title_en: INterSECTion
   author: futakoyk
   image_public: true
   active: true
@@ -675,7 +695,10 @@
   camera: PENTAX K-70
   lens: HD PENTAX-DA 55-300mm F4.5-5.6 ED PLM WR RE
   description: 規則的に交差するフェンスの上に、一匹の昆虫を見つけた。人工物の直線と、自然が生み出した複雑な模様。偶然の出会いが、普段とは違う視点を与えてくれた。
-  description_en:
+  description_en: |
+    On a fence that intersected in a regular pattern, I found a single insect.
+    The straight lines of the man-made structure contrasted with the complex patterns created by nature.
+    This chance encounter offered me a perspective different from my usual view.
   images:
     thumb: "/2026/gakusai/public-images/works/99d658b4-bc9b-487d-9368-85af2da39f22_wm.jpg"
     full: "/2026/gakusai/public-images/works/99d658b4-bc9b-487d-9368-85af2da39f22_wm.jpg"
@@ -683,7 +706,7 @@
 - work_id: a2c67e4b09bb22c9cc9a21a57d2bf49bc648c08f048baa6da73e4775d6e702f4
   "no": 39
   title: 感涙の
-  title_en: 
+  title_en: Tears of Wonder
   author: 飯田智久
   image_public: true
   active: true
@@ -691,7 +714,7 @@
   camera: SONY α7 RIII
   lens: FE 70-200mm F2.8 GM OSS II
   description: 自然の美しさは我々の想像を超えてくる。
-  description_en:
+  description_en: The beauty of nature so far surpasses our imagination.
   images:
     thumb: "/2026/gakusai/public-images/works/a2c67e4b09bb22c9cc9a21a57d2bf49bc648c08f048baa6da73e4775d6e702f4_wm.jpg"
     full: "/2026/gakusai/public-images/works/a2c67e4b09bb22c9cc9a21a57d2bf49bc648c08f048baa6da73e4775d6e702f4_wm.jpg"
@@ -699,7 +722,7 @@
 - work_id: 3831b9517c9d9ea66b5922e1116b660a814e40e2c47ac2ebd5c1da396bf6b2a3
   "no": 40
   title: FUJI
-  title_en: 
+  title_en: FUJI
   author: Fuji Ryu
   image_public: true
   active: true
